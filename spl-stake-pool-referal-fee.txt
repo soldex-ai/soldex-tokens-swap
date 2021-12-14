@@ -1,0 +1,2 @@
+spl-stake-pool set-referral-fee G2BfS3uCrR5FtsT91tyhvUV9PNPDxTiyQuWgVpj7mLef stake 80
+Signature: 2mfRiZpg59ntRNtVckh6zNzvVfU9QXNs6DRLky8jFx2oPE8aeGmwrPdctZAsyYA6Wwzb7Yr6CErFPKXQVwMyoR9e

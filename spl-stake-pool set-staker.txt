@@ -1,0 +1,2 @@
+spl-stake-pool set-staker G2BfS3uCrR5FtsT91tyhvUV9PNPDxTiyQuWgVpj7mLef FUxPXpm61qxY1L27rfMUQPmfxqkbwqRTgqxQNpvs4aoG
+Signature: 2VrRC6XZ3TxquxbPCUevZGwb5MmcXb98VoRTUpu6fMGm6yVmaeuMywb8g3CpdViNKB3bBPtryEwBgoDAhUCovgbC

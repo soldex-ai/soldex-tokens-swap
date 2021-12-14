@@ -1,0 +1,2 @@
+speqto@speqto-Latitude-3520:/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/stake-pool$ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_stake_pool.so
+Program Id: BL9AAAGmpE1qURGCpJwLdFYYS8KDEDPxdhzFmftMd2VC

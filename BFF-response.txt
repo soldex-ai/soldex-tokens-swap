@@ -1,0 +1,422 @@
+speqto@speqto-Latitude-3520:/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/stake-pool$ cargo build-bpf
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling proc-macro2 v1.0.32
+   Compiling unicode-xid v0.2.1
+   Compiling syn v1.0.81
+   Compiling serde_derive v1.0.130
+   Compiling serde v1.0.130
+   Compiling semver-parser v0.7.0
+   Compiling typenum v1.13.0
+   Compiling version_check v0.9.3
+   Compiling feature-probe v0.1.1
+   Compiling block-padding v0.2.1
+   Compiling rustversion v1.0.4
+   Compiling autocfg v1.0.1
+   Compiling cfg-if v1.0.0
+   Compiling log v0.4.14
+   Compiling opaque-debug v0.3.0
+   Compiling ahash v0.4.7
+   Compiling either v1.6.1
+   Compiling crunchy v0.2.2
+   Compiling bs58 v0.3.1
+   Compiling keccak v0.1.0
+   Compiling hex v0.4.3
+   Compiling lazy_static v1.4.0
+   Compiling byteorder v1.4.3
+   Compiling static_assertions v1.1.0
+   Compiling arrayref v0.3.6
+   Compiling semver v0.9.0
+   Compiling bv v0.11.1
+   Compiling generic-array v0.14.4
+   Compiling itertools v0.9.0
+   Compiling hashbrown v0.9.1
+   Compiling num-traits v0.2.14
+   Compiling rustc_version v0.2.3
+   Compiling uint v0.9.1
+   Compiling solana-frozen-abi-macro v1.8.1
+   Compiling solana-frozen-abi v1.8.1
+   Compiling solana-program v1.8.1
+   Compiling quote v1.0.9
+   Compiling borsh-schema-derive-internal v0.9.1
+   Compiling borsh-derive-internal v0.9.1
+   Compiling thiserror-impl v1.0.30
+   Compiling bytemuck_derive v1.0.1
+   Compiling derivative v2.2.0
+   Compiling solana-sdk-macro v1.8.1
+   Compiling num-derive v0.3.3
+   Compiling bytemuck v1.7.2
+   Compiling thiserror v1.0.30
+   Compiling bincode v1.3.3
+   Compiling serde_bytes v0.11.5
+   Compiling toml v0.5.8
+   Compiling digest v0.9.0
+   Compiling block-buffer v0.9.0
+   Compiling sha2 v0.9.3
+   Compiling sha3 v0.9.1
+   Compiling proc-macro-crate v0.1.5
+   Compiling proc-macro-crate v1.0.0
+   Compiling borsh-derive v0.9.1
+   Compiling num_enum_derive v0.5.4
+   Compiling borsh v0.9.1
+   Compiling num_enum v0.5.4
+   Compiling spl-token v3.2.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token/program)
+   Compiling binary-option v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/binary-option/program)
+    Finished release [optimized] target(s) in 29.22s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/binary_option.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/binary_option.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/binary_option.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/binary_option.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/binary_option-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-token v3.2.0
+   Compiling flash_loan_receiver v1.0.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token-lending/flash_loan_receiver)
+    Finished release [optimized] target(s) in 1.27s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/flash_loan_receiver.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/flash_loan_receiver.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/flash_loan_receiver.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/flash_loan_receiver.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/flash_loan_receiver-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling syn v1.0.81
+   Compiling serde v1.0.130
+   Compiling spin v0.5.2
+   Compiling either v1.6.1
+   Compiling num-traits v0.2.14
+   Compiling hashbrown v0.9.1
+   Compiling lazy_static v1.4.0
+   Compiling itertools v0.9.0
+   Compiling borsh-schema-derive-internal v0.9.1
+   Compiling borsh-derive-internal v0.9.1
+   Compiling serde_derive v1.0.130
+   Compiling thiserror-impl v1.0.30
+   Compiling bytemuck_derive v1.0.1
+   Compiling solana-frozen-abi-macro v1.8.1
+   Compiling num-derive v0.3.3
+   Compiling solana-sdk-macro v1.8.1
+   Compiling derivative v2.2.0
+   Compiling bytemuck v1.7.2
+   Compiling thiserror v1.0.30
+   Compiling generic-array v0.14.4
+   Compiling bv v0.11.1
+   Compiling serde_bytes v0.11.5
+   Compiling bincode v1.3.3
+   Compiling toml v0.5.8
+   Compiling digest v0.9.0
+   Compiling block-buffer v0.9.0
+   Compiling sha2 v0.9.3
+   Compiling sha3 v0.9.1
+   Compiling solana-frozen-abi v1.8.1
+   Compiling proc-macro-crate v0.1.5
+   Compiling proc-macro-crate v1.0.0
+   Compiling borsh-derive v0.9.1
+   Compiling num_enum_derive v0.5.4
+   Compiling borsh v0.9.1
+   Compiling num_enum v0.5.4
+   Compiling solana-program v1.8.1
+   Compiling spl-token v3.2.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token/program)
+   Compiling spl-associated-token-account v1.0.4 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/associated-token-account/program)
+    Finished release [optimized] target(s) in 26.12s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_associated_token_account.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_associated_token_account.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_associated_token_account.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_associated_token_account.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_associated_token_account-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling byteorder v1.4.3
+   Compiling uint v0.9.1
+   Compiling spl-binary-oracle-pair v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/binary-oracle-pair/program)
+    Finished release [optimized] target(s) in 1.21s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_binary_oracle_pair.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_binary_oracle_pair.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_binary_oracle_pair.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_binary_oracle_pair.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_binary_oracle_pair-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-example-cross-program-invocation v1.0.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/examples/rust/cross-program-invocation)
+    Finished release [optimized] target(s) in 0.28s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_example_cross_program_invocation.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_cross_program_invocation.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_cross_program_invocation.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_cross_program_invocation.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_cross_program_invocation-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-example-custom-heap v1.0.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/examples/rust/custom-heap)
+    Finished release [optimized] target(s) in 0.29s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_example_custom_heap.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_custom_heap.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_custom_heap.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_custom_heap.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_custom_heap-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-example-logging v1.0.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/examples/rust/logging)
+    Finished release [optimized] target(s) in 0.26s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_example_logging.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_logging.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_logging.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_logging.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_logging-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-example-sysvar v1.0.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/examples/rust/sysvar)
+    Finished release [optimized] target(s) in 0.37s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_example_sysvar.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_sysvar.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_sysvar.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_sysvar.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_sysvar-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-example-transfer-lamports v1.0.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/examples/rust/transfer-lamports)
+    Finished release [optimized] target(s) in 0.28s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_example_transfer_lamports.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_transfer_lamports.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_transfer_lamports.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_transfer_lamports.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_example_transfer_lamports-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-feature-proposal v1.0.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/feature-proposal/program)
+    Finished release [optimized] target(s) in 0.81s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_feature_proposal.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_feature_proposal.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_feature_proposal.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_feature_proposal.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_feature_proposal-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-governance-tools v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/governance/tools)
+   Compiling spl-governance v2.1.4 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/governance/program)
+    Finished release [optimized] target(s) in 4.25s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_governance.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-governance v2.1.4 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/governance/program)
+   Compiling spl-governance-chat v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/governance/chat/program)
+    Finished release [optimized] target(s) in 4.60s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_governance_chat.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance_chat.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance_chat.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance_chat.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance_chat-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-governance-voter-weight-addin v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/governance/voter-weight-addin/program)
+    Finished release [optimized] target(s) in 0.53s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_governance_voter_weight_addin.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance_voter_weight_addin.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance_voter_weight_addin.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance_voter_weight_addin.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_governance_voter_weight_addin-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-math v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/libraries/math)
+    Finished release [optimized] target(s) in 2.20s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_math.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_math.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_math.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_math.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_math-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-memo v3.0.1 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/memo/program)
+    Finished release [optimized] target(s) in 0.35s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_memo.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_memo.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_memo.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_memo.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_memo-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-name-service v0.2.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/name-service/program)
+    Finished release [optimized] target(s) in 0.58s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_name_service.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_name_service.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_name_service.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_name_service.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_name_service-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-record v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/record/program)
+    Finished release [optimized] target(s) in 0.61s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_record.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_record.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_record.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_record.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_record-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-shared-memory v2.0.6 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/shared-memory/program)
+    Finished release [optimized] target(s) in 0.29s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_shared_memory.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_shared_memory.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_shared_memory.so
+Warning: the following functions are undefined and not known syscalls ["custom_panic"].
+         Calling them will trigger a run-time error.
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_shared_memory.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_shared_memory-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-math v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/libraries/math)
+   Compiling spl-stake-pool v0.6.3 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/stake-pool/program)
+    Finished release [optimized] target(s) in 6.04s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_stake_pool.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_stake_pool.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_stake_pool.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_stake_pool.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_stake_pool-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-token v3.2.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token/program)
+    Finished release [optimized] target(s) in 1.08s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_token.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-token-2022 v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token/program-2022)
+    Finished release [optimized] target(s) in 1.17s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_token_2022.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_2022.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_2022.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_2022.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_2022-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-token v3.2.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token/program)
+   Compiling spl-token-lending v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token-lending/program)
+    Finished release [optimized] target(s) in 4.66s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_token_lending.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_lending.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_lending.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_lending.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_lending-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling once_cell v1.8.0
+   Compiling serde v1.0.130
+   Compiling enum_dispatch v0.3.7
+   Compiling generic-array v0.14.4
+   Compiling bv v0.11.1
+   Compiling bincode v1.3.3
+   Compiling serde_bytes v0.11.5
+   Compiling toml v0.5.8
+   Compiling block-buffer v0.9.0
+   Compiling digest v0.9.0
+   Compiling sha2 v0.9.3
+   Compiling sha3 v0.9.1
+   Compiling solana-frozen-abi v1.8.1
+   Compiling proc-macro-crate v0.1.5
+   Compiling proc-macro-crate v1.0.0
+   Compiling borsh-derive v0.9.1
+   Compiling num_enum_derive v0.5.4
+   Compiling borsh v0.9.1
+   Compiling num_enum v0.5.4
+   Compiling solana-program v1.8.1
+   Compiling spl-token v3.2.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token/program)
+   Compiling spl-math v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/libraries/math)
+   Compiling spl-token-swap v2.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token-swap/program)
+    Finished release [optimized] target(s) in 17.18s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/spl_token_swap.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_swap.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_swap.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_swap.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/spl_token_swap-keypair.json
+BPF SDK: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf
+Running: rustup toolchain list -v
+Running: cargo +bpf build --target bpfel-unknown-unknown --release
+   Compiling spl-token v3.2.0
+   Compiling spl-token v3.2.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token/program)
+   Compiling metaplex-token-vault v0.0.1
+   Compiling spl-associated-token-account v1.0.3
+   Compiling metaplex-token-metadata v0.0.1
+   Compiling stateless-asks v0.1.0 (/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/stateless-asks/program)
+    Finished release [optimized] target(s) in 5.30s
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/scripts/strip.sh /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/bpfel-unknown-unknown/release/stateless_asks.so /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/stateless_asks.so
+Running: /home/speqto/.local/share/solana/install/releases/1.8.1/solana-release/bin/sdk/bpf/dependencies/bpf-tools/llvm/bin/llvm-readelf --dyn-symbols /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/stateless_asks.so
+
+To deploy this program:
+  $ solana program deploy /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/stateless_asks.so
+The program address will default to this keypair (override with --program-id):
+  /opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/target/deploy/stateless_asks-keypair.json

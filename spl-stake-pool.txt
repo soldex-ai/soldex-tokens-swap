@@ -1,0 +1,2 @@
+spl-stake-pool set-fee G2BfS3uCrR5FtsT91tyhvUV9PNPDxTiyQuWgVpj7mLef epoch 10 100
+Signature: 3ZLdoP92PKnN2gc5mjCzLBn47HbCkSca5brjuTDrKY2rChCoR95zE7JEnjXLvTSbfABcxTCFFrMyjR5bLBodyLMU

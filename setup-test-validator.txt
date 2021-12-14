@@ -1,0 +1,47 @@
+./setup-test-validator.sh 10 local_validators.txt
+Setup keys directory and clear old validator list file if found
+Setting up local test validator
+Config File: /home/speqto/.config/solana/cli/config.yml
+RPC URL: http://127.0.0.1:8899 
+WebSocket URL: ws://127.0.0.1:8900/ (computed)
+Keypair Path: /home/speqto/validator-keypair.json 
+Commitment: confirmed 
+Config File: /home/speqto/.config/solana/cli/config.yml
+RPC URL: http://127.0.0.1:8899 
+WebSocket URL: ws://127.0.0.1:8900/ (computed)
+Keypair Path: /home/speqto/validator-keypair.json 
+Commitment: confirmed 
+waiting for solana-test-validator, pid: 28094
+Error: failed to start faucet: Unable to bind faucet to 0.0.0.0:9900, check the address is not already in use: Address already in use (os error 98)
+Creating vote accounts, these accounts be added to the stake pool
+
+Signature: rLAMf7349MXW6M6TWfanDZWRcx9hWLM8DrN5V2pZovBvthq95hJuD9yGLD4yBx8StWvw4wQmjkE8sd43M9x9mF3
+
+
+Signature: 47ndiqBRfpt4yFKDshfiZQVWTFzvx7tXwxVNtUuganqCufUS3qQSnEvbvvFWMTtTHWkvPtp77otrZeUeibDNVnCB
+
+
+Signature: HXBafjBg5FnV648UgSkuNsxf2aicZm2Pt5n8vMegfZfuAovB8ZPzZawWK4qRwZg6HnrvTK2ZvxDcfvxA3bbtXoH
+
+
+Signature: 61YQyUKEBgn8hmzV96rgDcWBSoBsigR1mcRFpZzR6KoWPSjJtAGHSae3qxCBsb7yktKHcrFmCxCTcggpdd229iUv
+
+
+Signature: sUNazT5TYTkSKB9Y9pgsCzdCjJ1rmGrfXtSeCh6kbSZ5oLhkFFzNYt9rK5M5bQy9BBTCVkguavzpGp4hzg11iMM
+
+
+Signature: 36G7wjNGs6HK2CZmeiUjBeAT5GfY3rjNm3M6YFVkB31q7pkT2VAXqSWWHtuwRJyga6ZcWHfSm141qoDxN67SwyMg
+
+
+Signature: 4CtQH8Kd4VSMsT4tASXTrFoseGUPU4uabzGxPEn6vuLAPZ7wZTAuAULxabiWFk4CSN9QWbC2ZcLyKwBixczm6pJk
+
+
+Signature: 2VeZ2arfCX15sux44Vh1Z9xSdDuzb1a48ju2AbHCrjrxBJBwLfbVMsHy1rwqb4QvuLp9vMPGMGz5JaBDWs84hLxJ
+
+
+Signature: 3XEfHHbb2dtVJfkcE6xVXUdq9GTQ1u8WSqbYbMmJ2J7jrp3ofHMwrDvyu49DPtAxfD8v8vHUdpPB2tiwmBZD7LUH
+
+
+Signature: nED1W3JSgvMEoa3h89uvrTefKAwodYCZXznT1PRdn2rcUXG5KqsUS7LrWY5qaxnrmvZqy81i7BAUXWXtPLMsgMU
+
+Done adding 10 validator vote accounts, their pubkeys can be found in local_validators.txt

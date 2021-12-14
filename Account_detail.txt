@@ -1,0 +1,17 @@
+speqto@speqto-Latitude-3520:/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/stake-pool$ solana-keygen new --force
+Generating a new keypair
+
+For added security, enter a BIP39 passphrase
+
+NOTE! This passphrase improves security of the recovery seed phrase NOT the
+keypair file itself, which is stored as insecure plain text
+
+BIP39 Passphrase (empty for none): 
+
+Wrote new keypair to /home/speqto/.config/solana/id.json
+==========================================================================
+pubkey: 7Qc9xWskaFzpkNBkxyDfZfgvc6W8LAaBiaU1RwBB4ajT
+==========================================================================
+Save this seed phrase and your BIP39 passphrase to recover your new keypair:
+hollow fork feature right art smoke pepper major loop secret evil distance
+==========================================================================
