@@ -18,7 +18,7 @@ create_keypair () {
 setup_test_validator() {
   solana-test-validator -c SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy -c EmiU8AQkB2sswTxVB6aCmsAJftoowZGGDXuytm6X65R3 --url devnet --slots-per-epoch 32 --quiet --reset &
   pid=$!
-  solana config set --url http://127.0.0.1:8899
+  solana config set --url https://api.devnet.solana.com 
   solana config set --commitment confirmed
   echo "waiting for solana-test-validator, pid: $pid"
   sleep 5
