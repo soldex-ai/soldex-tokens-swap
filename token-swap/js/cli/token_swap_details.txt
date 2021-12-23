@@ -1,0 +1,968 @@
+Run test: createTokenSwap (constant price)
+Connection to cluster established: http://localhost:8899 { 'feature-set': 1797267350, 'solana-core': '1.8.1' }
+payer.publicKey :5rZ9SuDEJqnocEGSwQ2cN7fV7WpZe6PonRY9Hb6m8MrW
+owner.publicKey :61mWfYwg7SxBUJdCc5dhp9gYYH3FAPptmDPv3Mo96fgt
+TOKEN_SWAP_PROGRAM_ID :Dx5nk4Zq1Kib9ahG5oE3LuU6rfjgubggFRzjZDj83Nzv
+[tokenSwapAccount.publicKey.toBuffer()] :9NiaiqZZCtvNfh2Ta7pxLtr6aC4WxkwDrWuiVpi1axNU
+authority :C6utnz189mjuogXf4rCSU7YR9rUST3NztYBGL8YHm25Z
+bumpSeed :254
+creating pool mint
+TOKEN_PROGRAM_ID :TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+--------------------------------tokenPool--------------------------------
+Token {
+  connection: Connection {
+    _commitment: 'recent',
+    _confirmTransactionInitialTimeout: undefined,
+    _rpcEndpoint: 'http://localhost:8899',
+    _rpcWsEndpoint: 'ws://localhost:8900/',
+    _rpcClient: ClientBrowser {
+      options: [Object],
+      callServer: [AsyncFunction (anonymous)]
+    },
+    _rpcRequest: [Function (anonymous)],
+    _rpcBatchRequest: [Function (anonymous)],
+    _rpcWebSocket: Client {
+      _events: [Events <Complex prototype>],
+      _eventsCount: 10,
+      webSocketFactory: [Function: _default],
+      queue: [Object],
+      rpc_id: 1,
+      address: 'ws://localhost:8900/',
+      autoconnect: false,
+      ready: true,
+      reconnect: true,
+      reconnect_interval: 1000,
+      max_reconnects: Infinity,
+      rest_options: {},
+      current_reconnects: 0,
+      generate_request_id: [Function (anonymous)],
+      socket: [WebSocket]
+    },
+    _rpcWebSocketConnected: false,
+    _rpcWebSocketHeartbeat: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [Timeout],
+      _idleStart: 3841,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 5000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 220,
+      [Symbol(triggerId)]: 211
+    },
+    _rpcWebSocketIdleTimeout: Timeout {
+      _idleTimeout: 500,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 3930,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 228,
+      [Symbol(triggerId)]: 0
+    },
+    _disableBlockhashCaching: false,
+    _pollingBlockhash: false,
+    _blockhashInfo: {
+      recentBlockhash: '9JzvTD9QcjSZNasncTrnLtUcseue4pzG5SFXXDmTVDEf',
+      lastFetch: 1640003408477,
+      transactionSignatures: [Array],
+      simulatedSignatures: []
+    },
+    _accountChangeSubscriptionCounter: 0,
+    _accountChangeSubscriptions: {},
+    _programAccountChangeSubscriptionCounter: 0,
+    _programAccountChangeSubscriptions: {},
+    _rootSubscriptionCounter: 0,
+    _rootSubscriptions: {},
+    _signatureSubscriptionCounter: 1,
+    _signatureSubscriptions: {},
+    _slotSubscriptionCounter: 0,
+    _slotSubscriptions: {},
+    _logsSubscriptionCounter: 0,
+    _logsSubscriptions: {},
+    _slotUpdateSubscriptionCounter: 0,
+    _slotUpdateSubscriptions: {}
+  },
+  publicKey: PublicKey {
+    _bn: <BN: f930192261a177c481fbe1e49ce0524b28caeece40bbf01207fa242810b4e492>
+  },
+  programId: PublicKey {
+    _bn: <BN: 6ddf6e1d765a193d9cbe146ceeb79ac1cb485ed5f5b37913a8cf5857eff00a9>
+  },
+  associatedProgramId: PublicKey {
+    _bn: <BN: 8c97258f4e2489f1bb3d1029148e0d830b5a1399daff1084048e7bd8dbe9f859>
+  },
+  payer: Account {
+    _keypair: { publicKey: [Uint8Array], secretKey: [Uint8Array] }
+  }
+}
+creating pool account
+tokenAccountPool :BajcwxNNLS9TxS3b581S4DN79LiaeCywRYgMHEBHFF3S
+feeAccount :4Qdw2hCkYjLAVFrdT1odZF7toRiqMEvfnuVnNXVLHrui
+creating token A
+--------------------------------mintA--------------------------------
+Token {
+  connection: Connection {
+    _commitment: 'recent',
+    _confirmTransactionInitialTimeout: undefined,
+    _rpcEndpoint: 'http://localhost:8899',
+    _rpcWsEndpoint: 'ws://localhost:8900/',
+    _rpcClient: ClientBrowser {
+      options: [Object],
+      callServer: [AsyncFunction (anonymous)]
+    },
+    _rpcRequest: [Function (anonymous)],
+    _rpcBatchRequest: [Function (anonymous)],
+    _rpcWebSocket: Client {
+      _events: [Events <Complex prototype>],
+      _eventsCount: 10,
+      webSocketFactory: [Function: _default],
+      queue: [Object],
+      rpc_id: 4,
+      address: 'ws://localhost:8900/',
+      autoconnect: false,
+      ready: true,
+      reconnect: true,
+      reconnect_interval: 1000,
+      max_reconnects: Infinity,
+      rest_options: {},
+      current_reconnects: 0,
+      generate_request_id: [Function (anonymous)],
+      socket: [WebSocket]
+    },
+    _rpcWebSocketConnected: false,
+    _rpcWebSocketHeartbeat: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [Timeout],
+      _idleNext: [TimersList],
+      _idleStart: 3841,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 5000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 220,
+      [Symbol(triggerId)]: 211
+    },
+    _rpcWebSocketIdleTimeout: Timeout {
+      _idleTimeout: 500,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 5190,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 396,
+      [Symbol(triggerId)]: 0
+    },
+    _disableBlockhashCaching: false,
+    _pollingBlockhash: false,
+    _blockhashInfo: {
+      recentBlockhash: '9JzvTD9QcjSZNasncTrnLtUcseue4pzG5SFXXDmTVDEf',
+      lastFetch: 1640003408477,
+      transactionSignatures: [Array],
+      simulatedSignatures: []
+    },
+    _accountChangeSubscriptionCounter: 0,
+    _accountChangeSubscriptions: {},
+    _programAccountChangeSubscriptionCounter: 0,
+    _programAccountChangeSubscriptions: {},
+    _rootSubscriptionCounter: 0,
+    _rootSubscriptions: {},
+    _signatureSubscriptionCounter: 4,
+    _signatureSubscriptions: {},
+    _slotSubscriptionCounter: 0,
+    _slotSubscriptions: {},
+    _logsSubscriptionCounter: 0,
+    _logsSubscriptions: {},
+    _slotUpdateSubscriptionCounter: 0,
+    _slotUpdateSubscriptions: {}
+  },
+  publicKey: PublicKey {
+    _bn: <BN: ee366fb6b650f8f2073fe5d922f53db6946020e45dd15550aa85399117d1e6c7>
+  },
+  programId: PublicKey {
+    _bn: <BN: 6ddf6e1d765a193d9cbe146ceeb79ac1cb485ed5f5b37913a8cf5857eff00a9>
+  },
+  associatedProgramId: PublicKey {
+    _bn: <BN: 8c97258f4e2489f1bb3d1029148e0d830b5a1399daff1084048e7bd8dbe9f859>
+  },
+  payer: Account {
+    _keypair: { publicKey: [Uint8Array], secretKey: [Uint8Array] }
+  }
+}
+creating token A account
+tokenAccountA :9xF53mcGk7dFFUz4HvhfdDUmVqAVYARM6iBpHp7QUgKp
+minting token A to swap
+creating token B
+--------------------------------mintB--------------------------------
+Token {
+  connection: Connection {
+    _commitment: 'recent',
+    _confirmTransactionInitialTimeout: undefined,
+    _rpcEndpoint: 'http://localhost:8899',
+    _rpcWsEndpoint: 'ws://localhost:8900/',
+    _rpcClient: ClientBrowser {
+      options: [Object],
+      callServer: [AsyncFunction (anonymous)]
+    },
+    _rpcRequest: [Function (anonymous)],
+    _rpcBatchRequest: [Function (anonymous)],
+    _rpcWebSocket: Client {
+      _events: [Events <Complex prototype>],
+      _eventsCount: 10,
+      webSocketFactory: [Function: _default],
+      queue: [Object],
+      rpc_id: 7,
+      address: 'ws://localhost:8900/',
+      autoconnect: false,
+      ready: true,
+      reconnect: true,
+      reconnect_interval: 1000,
+      max_reconnects: Infinity,
+      rest_options: {},
+      current_reconnects: 0,
+      generate_request_id: [Function (anonymous)],
+      socket: [WebSocket]
+    },
+    _rpcWebSocketConnected: false,
+    _rpcWebSocketHeartbeat: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [Timeout],
+      _idleNext: [TimersList],
+      _idleStart: 3841,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 5000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 220,
+      [Symbol(triggerId)]: 211
+    },
+    _rpcWebSocketIdleTimeout: Timeout {
+      _idleTimeout: 500,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 6458,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 540,
+      [Symbol(triggerId)]: 0
+    },
+    _disableBlockhashCaching: false,
+    _pollingBlockhash: false,
+    _blockhashInfo: {
+      recentBlockhash: '9JzvTD9QcjSZNasncTrnLtUcseue4pzG5SFXXDmTVDEf',
+      lastFetch: 1640003408477,
+      transactionSignatures: [Array],
+      simulatedSignatures: []
+    },
+    _accountChangeSubscriptionCounter: 0,
+    _accountChangeSubscriptions: {},
+    _programAccountChangeSubscriptionCounter: 0,
+    _programAccountChangeSubscriptions: {},
+    _rootSubscriptionCounter: 0,
+    _rootSubscriptions: {},
+    _signatureSubscriptionCounter: 7,
+    _signatureSubscriptions: {},
+    _slotSubscriptionCounter: 0,
+    _slotSubscriptions: {},
+    _logsSubscriptionCounter: 0,
+    _logsSubscriptions: {},
+    _slotUpdateSubscriptionCounter: 0,
+    _slotUpdateSubscriptions: {}
+  },
+  publicKey: PublicKey {
+    _bn: <BN: 3f126a0ad6e348ec0f3c108d4c5bbc5b6dacd868356d512d7a8bec4f7f7a038c>
+  },
+  programId: PublicKey {
+    _bn: <BN: 6ddf6e1d765a193d9cbe146ceeb79ac1cb485ed5f5b37913a8cf5857eff00a9>
+  },
+  associatedProgramId: PublicKey {
+    _bn: <BN: 8c97258f4e2489f1bb3d1029148e0d830b5a1399daff1084048e7bd8dbe9f859>
+  },
+  payer: Account {
+    _keypair: { publicKey: [Uint8Array], secretKey: [Uint8Array] }
+  }
+}
+creating token B account
+tokenAccountB :A3A1xMdtJARDJPfB5LpkTvi1M14WRn78RwznnLZmhSVj
+minting token B to swap
+creating token swap
+--------------------------------swapPayer--------------------------------
+Account {
+  _keypair: {
+    publicKey: Uint8Array(32) [
+       97, 107,   5,  23, 181, 219,  14, 255,
+      137,  26, 223, 189, 115, 141, 244, 182,
+       29, 244,  74, 130, 248, 156, 216, 148,
+       51,  70, 156,   8,  85, 151,  85,   2
+    ],
+    secretKey: Uint8Array(64) [
+      219, 189, 119, 109,  92,  17,  47, 104,  85,  21, 107,
+      178,  96,  93, 252, 159, 215, 217, 217,  27, 195, 224,
+      115,  21, 253, 117, 164, 246,  71, 254,  91, 207,  97,
+      107,   5,  23, 181, 219,  14, 255, 137,  26, 223, 189,
+      115, 141, 244, 182,  29, 244,  74, 130, 248, 156, 216,
+      148,  51,  70, 156,   8,  85, 151,  85,   2
+    ]
+  }
+}
+--------------------------------tokenSwap--------------------------------
+TokenSwap {
+  connection: Connection {
+    _commitment: 'recent',
+    _confirmTransactionInitialTimeout: undefined,
+    _rpcEndpoint: 'http://localhost:8899',
+    _rpcWsEndpoint: 'ws://localhost:8900/',
+    _rpcClient: ClientBrowser {
+      options: [Object],
+      callServer: [AsyncFunction (anonymous)]
+    },
+    _rpcRequest: [Function (anonymous)],
+    _rpcBatchRequest: [Function (anonymous)],
+    _rpcWebSocket: Client {
+      _events: [Events <Complex prototype>],
+      _eventsCount: 10,
+      webSocketFactory: [Function: _default],
+      queue: [Object],
+      rpc_id: 10,
+      address: 'ws://localhost:8900/',
+      autoconnect: false,
+      ready: true,
+      reconnect: true,
+      reconnect_interval: 1000,
+      max_reconnects: Infinity,
+      rest_options: {},
+      current_reconnects: 0,
+      generate_request_id: [Function (anonymous)],
+      socket: [WebSocket]
+    },
+    _rpcWebSocketConnected: false,
+    _rpcWebSocketHeartbeat: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [Timeout],
+      _idleStart: 7891,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 5000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 750,
+      [Symbol(triggerId)]: 741
+    },
+    _rpcWebSocketIdleTimeout: Timeout {
+      _idleTimeout: 500,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 8147,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 758,
+      [Symbol(triggerId)]: 0
+    },
+    _disableBlockhashCaching: false,
+    _pollingBlockhash: false,
+    _blockhashInfo: {
+      recentBlockhash: '9JzvTD9QcjSZNasncTrnLtUcseue4pzG5SFXXDmTVDEf',
+      lastFetch: 1640003408477,
+      transactionSignatures: [Array],
+      simulatedSignatures: []
+    },
+    _accountChangeSubscriptionCounter: 0,
+    _accountChangeSubscriptions: {},
+    _programAccountChangeSubscriptionCounter: 0,
+    _programAccountChangeSubscriptions: {},
+    _rootSubscriptionCounter: 0,
+    _rootSubscriptions: {},
+    _signatureSubscriptionCounter: 10,
+    _signatureSubscriptions: {},
+    _slotSubscriptionCounter: 0,
+    _slotSubscriptions: {},
+    _logsSubscriptionCounter: 0,
+    _logsSubscriptions: {},
+    _slotUpdateSubscriptionCounter: 0,
+    _slotUpdateSubscriptions: {}
+  },
+  tokenSwap: PublicKey {
+    _bn: <BN: 7c6db5699e02bb0279d3d7ed56264d7f3f10623a91b2e89b843cdaaf243ae621>
+  },
+  swapProgramId: PublicKey {
+    _bn: <BN: c0689a280c53982d6978ea2cfb63cd2f295d99e0665ef41fecbef11b806f2c13>
+  },
+  tokenProgramId: PublicKey {
+    _bn: <BN: 6ddf6e1d765a193d9cbe146ceeb79ac1cb485ed5f5b37913a8cf5857eff00a9>
+  },
+  poolToken: PublicKey {
+    _bn: <BN: f930192261a177c481fbe1e49ce0524b28caeece40bbf01207fa242810b4e492>
+  },
+  feeAccount: PublicKey {
+    _bn: <BN: 32a12d921bf083fada89dbfe68fc2704c563ee66fe5047aeafa1f6f875421d05>
+  },
+  authority: PublicKey {
+    _bn: <BN: a4f4443a81f5a05328f3e8a9dbe912dda8c780c0a94b388634cc7c52b0e446ac>
+  },
+  tokenAccountA: PublicKey {
+    _bn: <BN: 850459427bfba1b5bbaf4558c3d6ad3d93d92131e0a731759c9b21e3046241e7>
+  },
+  tokenAccountB: PublicKey {
+    _bn: <BN: 864689f4f31ff8990ba1cea7afac86c81c9fae7475bb76919231fa46dd40e646>
+  },
+  mintA: PublicKey {
+    _bn: <BN: ee366fb6b650f8f2073fe5d922f53db6946020e45dd15550aa85399117d1e6c7>
+  },
+  mintB: PublicKey {
+    _bn: <BN: 3f126a0ad6e348ec0f3c108d4c5bbc5b6dacd868356d512d7a8bec4f7f7a038c>
+  },
+  tradeFeeNumerator: <BN: 19>,
+  tradeFeeDenominator: <BN: 2710>,
+  ownerTradeFeeNumerator: <BN: 5>,
+  ownerTradeFeeDenominator: <BN: 2710>,
+  ownerWithdrawFeeNumerator: <BN: 1>,
+  ownerWithdrawFeeDenominator: <BN: 6>,
+  hostFeeNumerator: <BN: 14>,
+  hostFeeDenominator: <BN: 64>,
+  curveType: 1,
+  payer: Account {
+    _keypair: { publicKey: [Uint8Array], secretKey: [Uint8Array] }
+  }
+}
+loading token swap
+fetchedTokenSwap.tokenProgramId: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA :TOKEN_PROGRAM_ID :TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+fetchedTokenSwap.tokenAccountA: 9xF53mcGk7dFFUz4HvhfdDUmVqAVYARM6iBpHp7QUgKp :tokenAccountA :9xF53mcGk7dFFUz4HvhfdDUmVqAVYARM6iBpHp7QUgKp
+fetchedTokenSwap.tokenAccountB: A3A1xMdtJARDJPfB5LpkTvi1M14WRn78RwznnLZmhSVj :tokenAccountB :A3A1xMdtJARDJPfB5LpkTvi1M14WRn78RwznnLZmhSVj
+fetchedTokenSwap.mintA: H2tBCf8Rc9uv951dMESV17FTgngQ4GFieUrzDRExydBc :mintA.publicKey :H2tBCf8Rc9uv951dMESV17FTgngQ4GFieUrzDRExydBc
+fetchedTokenSwap.mintB: 5FCyJ5pdM3DrDJCRZ6t6MVGc5MtoTghajf6n493MU2rP :mintB.publicKey :5FCyJ5pdM3DrDJCRZ6t6MVGc5MtoTghajf6n493MU2rP
+fetchedTokenSwap.poolToken: Hmj4C5akk6BdgbzU5CUWwez7TGg8b7GusUrxYM2unb2h :tokenPool.publicKey :Hmj4C5akk6BdgbzU5CUWwez7TGg8b7GusUrxYM2unb2h
+fetchedTokenSwap.feeAccount: 4Qdw2hCkYjLAVFrdT1odZF7toRiqMEvfnuVnNXVLHrui :feeAccount :4Qdw2hCkYjLAVFrdT1odZF7toRiqMEvfnuVnNXVLHrui
+TRADING_FEE_NUMERATOR: 25 :fetchedTokenSwap.tradeFeeNumerator.toNumber() :25
+TRADING_FEE_DENOMINATOR: 10000 :fetchedTokenSwap.tradeFeeDenominator.toNumber() :10000
+OWNER_TRADING_FEE_NUMERATOR: 5 :fetchedTokenSwap.ownerTradeFeeNumerator.toNumber() :5
+OWNER_TRADING_FEE_DENOMINATOR: 10000 :fetchedTokenSwap.ownerTradeFeeDenominator.toNumber() :10000
+OWNER_WITHDRAW_FEE_NUMERATOR: 1 :fetchedTokenSwap.ownerWithdrawFeeNumerator.toNumber() :1
+OWNER_WITHDRAW_FEE_DENOMINATOR: 6 :fetchedTokenSwap.ownerWithdrawFeeDenominator.toNumber() :6
+HOST_FEE_NUMERATOR: 20 :fetchedTokenSwap.hostFeeNumerator.toNumber() :20
+HOST_FEE_DENOMINATOR: 100 :fetchedTokenSwap.hostFeeDenominator.toNumber() :100
+curveType: 1 :fetchedTokenSwap.curveType :1
+CurveType.ConstantPrice :1
+Run test: createTokenSwap (constant product, used further in tests)
+payer.publicKey :DrQFfJMTeWBScnopEbcNUzTymrR3avGDQVN7S7p6hucZ
+owner.publicKey :4mRemqMzG9dqKikvdHyDsCELf1SHVJNAPsF9wnyFrf8x
+TOKEN_SWAP_PROGRAM_ID :Dx5nk4Zq1Kib9ahG5oE3LuU6rfjgubggFRzjZDj83Nzv
+[tokenSwapAccount.publicKey.toBuffer()] :36tUeUoTKYwuwehWwm14u5D183tbKnQyM8uNn6iSHxNk
+authority :6DNwV4hD9YGZMjqo9oGZZ8PAcpuMkzNyrKndG76MVt4p
+bumpSeed :255
+creating pool mint
+TOKEN_PROGRAM_ID :TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+--------------------------------tokenPool--------------------------------
+Token {
+  connection: Connection {
+    _commitment: 'recent',
+    _confirmTransactionInitialTimeout: undefined,
+    _rpcEndpoint: 'http://localhost:8899',
+    _rpcWsEndpoint: 'ws://localhost:8900/',
+    _rpcClient: ClientBrowser {
+      options: [Object],
+      callServer: [AsyncFunction (anonymous)]
+    },
+    _rpcRequest: [Function (anonymous)],
+    _rpcBatchRequest: [Function (anonymous)],
+    _rpcWebSocket: Client {
+      _events: [Events <Complex prototype>],
+      _eventsCount: 10,
+      webSocketFactory: [Function: _default],
+      queue: [Object],
+      rpc_id: 11,
+      address: 'ws://localhost:8900/',
+      autoconnect: false,
+      ready: true,
+      reconnect: true,
+      reconnect_interval: 1000,
+      max_reconnects: Infinity,
+      rest_options: {},
+      current_reconnects: 0,
+      generate_request_id: [Function (anonymous)],
+      socket: [WebSocket]
+    },
+    _rpcWebSocketConnected: false,
+    _rpcWebSocketHeartbeat: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [Timeout],
+      _idleStart: 9268,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 5000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 954,
+      [Symbol(triggerId)]: 945
+    },
+    _rpcWebSocketIdleTimeout: Timeout {
+      _idleTimeout: 500,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 9428,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 962,
+      [Symbol(triggerId)]: 0
+    },
+    _disableBlockhashCaching: false,
+    _pollingBlockhash: false,
+    _blockhashInfo: {
+      recentBlockhash: '9JzvTD9QcjSZNasncTrnLtUcseue4pzG5SFXXDmTVDEf',
+      lastFetch: 1640003408477,
+      transactionSignatures: [Array],
+      simulatedSignatures: []
+    },
+    _accountChangeSubscriptionCounter: 0,
+    _accountChangeSubscriptions: {},
+    _programAccountChangeSubscriptionCounter: 0,
+    _programAccountChangeSubscriptions: {},
+    _rootSubscriptionCounter: 0,
+    _rootSubscriptions: {},
+    _signatureSubscriptionCounter: 11,
+    _signatureSubscriptions: {},
+    _slotSubscriptionCounter: 0,
+    _slotSubscriptions: {},
+    _logsSubscriptionCounter: 0,
+    _logsSubscriptions: {},
+    _slotUpdateSubscriptionCounter: 0,
+    _slotUpdateSubscriptions: {}
+  },
+  publicKey: PublicKey {
+    _bn: <BN: ad979bee45f2e1e512679dbdbee4153c4d6d4daa5662b4329867b1da0c23c2aa>
+  },
+  programId: PublicKey {
+    _bn: <BN: 6ddf6e1d765a193d9cbe146ceeb79ac1cb485ed5f5b37913a8cf5857eff00a9>
+  },
+  associatedProgramId: PublicKey {
+    _bn: <BN: 8c97258f4e2489f1bb3d1029148e0d830b5a1399daff1084048e7bd8dbe9f859>
+  },
+  payer: Account {
+    _keypair: { publicKey: [Uint8Array], secretKey: [Uint8Array] }
+  }
+}
+creating pool account
+tokenAccountPool :97aXa19tZpWSXAwX42q9FGtttzryM8mh7KPSxy3Kwze3
+feeAccount :CZjKEXeURxKuLxo1m1tzpC3FGVmojyBUBKqf4bGB4fzD
+creating token A
+--------------------------------mintA--------------------------------
+Token {
+  connection: Connection {
+    _commitment: 'recent',
+    _confirmTransactionInitialTimeout: undefined,
+    _rpcEndpoint: 'http://localhost:8899',
+    _rpcWsEndpoint: 'ws://localhost:8900/',
+    _rpcClient: ClientBrowser {
+      options: [Object],
+      callServer: [AsyncFunction (anonymous)]
+    },
+    _rpcRequest: [Function (anonymous)],
+    _rpcBatchRequest: [Function (anonymous)],
+    _rpcWebSocket: Client {
+      _events: [Events <Complex prototype>],
+      _eventsCount: 10,
+      webSocketFactory: [Function: _default],
+      queue: [Object],
+      rpc_id: 14,
+      address: 'ws://localhost:8900/',
+      autoconnect: false,
+      ready: true,
+      reconnect: true,
+      reconnect_interval: 1000,
+      max_reconnects: Infinity,
+      rest_options: {},
+      current_reconnects: 0,
+      generate_request_id: [Function (anonymous)],
+      socket: [WebSocket]
+    },
+    _rpcWebSocketConnected: false,
+    _rpcWebSocketHeartbeat: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [Timeout],
+      _idleNext: [TimersList],
+      _idleStart: 9268,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 5000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 954,
+      [Symbol(triggerId)]: 945
+    },
+    _rpcWebSocketIdleTimeout: Timeout {
+      _idleTimeout: 500,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 10689,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 1134,
+      [Symbol(triggerId)]: 0
+    },
+    _disableBlockhashCaching: false,
+    _pollingBlockhash: false,
+    _blockhashInfo: {
+      recentBlockhash: '9JzvTD9QcjSZNasncTrnLtUcseue4pzG5SFXXDmTVDEf',
+      lastFetch: 1640003408477,
+      transactionSignatures: [Array],
+      simulatedSignatures: []
+    },
+    _accountChangeSubscriptionCounter: 0,
+    _accountChangeSubscriptions: {},
+    _programAccountChangeSubscriptionCounter: 0,
+    _programAccountChangeSubscriptions: {},
+    _rootSubscriptionCounter: 0,
+    _rootSubscriptions: {},
+    _signatureSubscriptionCounter: 14,
+    _signatureSubscriptions: {},
+    _slotSubscriptionCounter: 0,
+    _slotSubscriptions: {},
+    _logsSubscriptionCounter: 0,
+    _logsSubscriptions: {},
+    _slotUpdateSubscriptionCounter: 0,
+    _slotUpdateSubscriptions: {}
+  },
+  publicKey: PublicKey {
+    _bn: <BN: c6b0b791b68542172f53ed57a579b382b94194534304ebfd3324ad01929189a6>
+  },
+  programId: PublicKey {
+    _bn: <BN: 6ddf6e1d765a193d9cbe146ceeb79ac1cb485ed5f5b37913a8cf5857eff00a9>
+  },
+  associatedProgramId: PublicKey {
+    _bn: <BN: 8c97258f4e2489f1bb3d1029148e0d830b5a1399daff1084048e7bd8dbe9f859>
+  },
+  payer: Account {
+    _keypair: { publicKey: [Uint8Array], secretKey: [Uint8Array] }
+  }
+}
+creating token A account
+tokenAccountA :76wemmrLztSzr7sSKQcaqEj8nd717yv1jnx1ajcLh6Vt
+minting token A to swap
+creating token B
+--------------------------------mintB--------------------------------
+Token {
+  connection: Connection {
+    _commitment: 'recent',
+    _confirmTransactionInitialTimeout: undefined,
+    _rpcEndpoint: 'http://localhost:8899',
+    _rpcWsEndpoint: 'ws://localhost:8900/',
+    _rpcClient: ClientBrowser {
+      options: [Object],
+      callServer: [AsyncFunction (anonymous)]
+    },
+    _rpcRequest: [Function (anonymous)],
+    _rpcBatchRequest: [Function (anonymous)],
+    _rpcWebSocket: Client {
+      _events: [Events <Complex prototype>],
+      _eventsCount: 10,
+      webSocketFactory: [Function: _default],
+      queue: [Object],
+      rpc_id: 17,
+      address: 'ws://localhost:8900/',
+      autoconnect: false,
+      ready: true,
+      reconnect: true,
+      reconnect_interval: 1000,
+      max_reconnects: Infinity,
+      rest_options: {},
+      current_reconnects: 0,
+      generate_request_id: [Function (anonymous)],
+      socket: [WebSocket]
+    },
+    _rpcWebSocketConnected: false,
+    _rpcWebSocketHeartbeat: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [Timeout],
+      _idleNext: [TimersList],
+      _idleStart: 9268,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 5000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 954,
+      [Symbol(triggerId)]: 945
+    },
+    _rpcWebSocketIdleTimeout: Timeout {
+      _idleTimeout: 500,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 11947,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 1278,
+      [Symbol(triggerId)]: 0
+    },
+    _disableBlockhashCaching: false,
+    _pollingBlockhash: false,
+    _blockhashInfo: {
+      recentBlockhash: '9JzvTD9QcjSZNasncTrnLtUcseue4pzG5SFXXDmTVDEf',
+      lastFetch: 1640003408477,
+      transactionSignatures: [Array],
+      simulatedSignatures: []
+    },
+    _accountChangeSubscriptionCounter: 0,
+    _accountChangeSubscriptions: {},
+    _programAccountChangeSubscriptionCounter: 0,
+    _programAccountChangeSubscriptions: {},
+    _rootSubscriptionCounter: 0,
+    _rootSubscriptions: {},
+    _signatureSubscriptionCounter: 17,
+    _signatureSubscriptions: {},
+    _slotSubscriptionCounter: 0,
+    _slotSubscriptions: {},
+    _logsSubscriptionCounter: 0,
+    _logsSubscriptions: {},
+    _slotUpdateSubscriptionCounter: 0,
+    _slotUpdateSubscriptions: {}
+  },
+  publicKey: PublicKey {
+    _bn: <BN: de7f421c9539cffe5dd384da63ed240ef69c8546b3166d9bf00b7ef65ca59083>
+  },
+  programId: PublicKey {
+    _bn: <BN: 6ddf6e1d765a193d9cbe146ceeb79ac1cb485ed5f5b37913a8cf5857eff00a9>
+  },
+  associatedProgramId: PublicKey {
+    _bn: <BN: 8c97258f4e2489f1bb3d1029148e0d830b5a1399daff1084048e7bd8dbe9f859>
+  },
+  payer: Account {
+    _keypair: { publicKey: [Uint8Array], secretKey: [Uint8Array] }
+  }
+}
+creating token B account
+tokenAccountB :6XHAwZ3uwBC9JXf8CWUG14nLpKeASta8ZA4Smeo3piHe
+minting token B to swap
+creating token swap
+--------------------------------swapPayer--------------------------------
+Account {
+  _keypair: {
+    publicKey: Uint8Array(32) [
+      224, 243, 251,  67,  56, 136,  14, 231,
+        0, 114, 155,  16,   0, 182,  69, 106,
+       97,  68, 112, 174, 252,  69,  35, 168,
+      246, 119,  76,  19, 183, 179, 248,  76
+    ],
+    secretKey: Uint8Array(64) [
+       50, 211, 114, 101, 119, 191, 182, 176,  69, 111, 194,
+       84, 204,  58,  83,  56,  96, 237, 242,  75, 243, 146,
+      124, 216,   2,   0,  77, 151, 138,  67,  51, 243, 224,
+      243, 251,  67,  56, 136,  14, 231,   0, 114, 155,  16,
+        0, 182,  69, 106,  97,  68, 112, 174, 252,  69,  35,
+      168, 246, 119,  76,  19, 183, 179, 248,  76
+    ]
+  }
+}
+--------------------------------tokenSwap--------------------------------
+TokenSwap {
+  connection: Connection {
+    _commitment: 'recent',
+    _confirmTransactionInitialTimeout: undefined,
+    _rpcEndpoint: 'http://localhost:8899',
+    _rpcWsEndpoint: 'ws://localhost:8900/',
+    _rpcClient: ClientBrowser {
+      options: [Object],
+      callServer: [AsyncFunction (anonymous)]
+    },
+    _rpcRequest: [Function (anonymous)],
+    _rpcBatchRequest: [Function (anonymous)],
+    _rpcWebSocket: Client {
+      _events: [Events <Complex prototype>],
+      _eventsCount: 10,
+      webSocketFactory: [Function: _default],
+      queue: [Object],
+      rpc_id: 20,
+      address: 'ws://localhost:8900/',
+      autoconnect: false,
+      ready: true,
+      reconnect: true,
+      reconnect_interval: 1000,
+      max_reconnects: Infinity,
+      rest_options: {},
+      current_reconnects: 0,
+      generate_request_id: [Function (anonymous)],
+      socket: [WebSocket]
+    },
+    _rpcWebSocketConnected: false,
+    _rpcWebSocketHeartbeat: Timeout {
+      _idleTimeout: 5000,
+      _idlePrev: [TimersList],
+      _idleNext: [Timeout],
+      _idleStart: 13386,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: 5000,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 1486,
+      [Symbol(triggerId)]: 1477
+    },
+    _rpcWebSocketIdleTimeout: Timeout {
+      _idleTimeout: 500,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 13632,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 1494,
+      [Symbol(triggerId)]: 0
+    },
+    _disableBlockhashCaching: false,
+    _pollingBlockhash: false,
+    _blockhashInfo: {
+      recentBlockhash: '9JzvTD9QcjSZNasncTrnLtUcseue4pzG5SFXXDmTVDEf',
+      lastFetch: 1640003408477,
+      transactionSignatures: [Array],
+      simulatedSignatures: []
+    },
+    _accountChangeSubscriptionCounter: 0,
+    _accountChangeSubscriptions: {},
+    _programAccountChangeSubscriptionCounter: 0,
+    _programAccountChangeSubscriptions: {},
+    _rootSubscriptionCounter: 0,
+    _rootSubscriptions: {},
+    _signatureSubscriptionCounter: 20,
+    _signatureSubscriptions: {},
+    _slotSubscriptionCounter: 0,
+    _slotSubscriptions: {},
+    _logsSubscriptionCounter: 0,
+    _logsSubscriptions: {},
+    _slotUpdateSubscriptionCounter: 0,
+    _slotUpdateSubscriptions: {}
+  },
+  tokenSwap: PublicKey {
+    _bn: <BN: 1f397b94f1962ae1cb5de436d072c924ce4f2649114bb7bdc880f97458776819>
+  },
+  swapProgramId: PublicKey {
+    _bn: <BN: c0689a280c53982d6978ea2cfb63cd2f295d99e0665ef41fecbef11b806f2c13>
+  },
+  tokenProgramId: PublicKey {
+    _bn: <BN: 6ddf6e1d765a193d9cbe146ceeb79ac1cb485ed5f5b37913a8cf5857eff00a9>
+  },
+  poolToken: PublicKey {
+    _bn: <BN: ad979bee45f2e1e512679dbdbee4153c4d6d4daa5662b4329867b1da0c23c2aa>
+  },
+  feeAccount: PublicKey {
+    _bn: <BN: abd2fcb1b909ef95f50a6743fe2617afe34be482e6d8edc5982f4a355624b7c6>
+  },
+  authority: PublicKey {
+    _bn: <BN: 4d763615ff0d5cfc3af92e1fbc39aa64abeb6445baca2c62c118f5a1673015c9>
+  },
+  tokenAccountA: PublicKey {
+    _bn: <BN: 5aabd1e8c7fdf7a43136f9436f99b5713e3f01177215db13be9f80800bf2868f>
+  },
+  tokenAccountB: PublicKey {
+    _bn: <BN: 520c24da073b5b26f9f1ce5380c08574f151d5f1fa03f2487ea2b25b86941901>
+  },
+  mintA: PublicKey {
+    _bn: <BN: c6b0b791b68542172f53ed57a579b382b94194534304ebfd3324ad01929189a6>
+  },
+  mintB: PublicKey {
+    _bn: <BN: de7f421c9539cffe5dd384da63ed240ef69c8546b3166d9bf00b7ef65ca59083>
+  },
+  tradeFeeNumerator: <BN: 19>,
+  tradeFeeDenominator: <BN: 2710>,
+  ownerTradeFeeNumerator: <BN: 5>,
+  ownerTradeFeeDenominator: <BN: 2710>,
+  ownerWithdrawFeeNumerator: <BN: 1>,
+  ownerWithdrawFeeDenominator: <BN: 6>,
+  hostFeeNumerator: <BN: 14>,
+  hostFeeDenominator: <BN: 64>,
+  curveType: 0,
+  payer: Account {
+    _keypair: { publicKey: [Uint8Array], secretKey: [Uint8Array] }
+  }
+}
+loading token swap
+fetchedTokenSwap.tokenProgramId: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA :TOKEN_PROGRAM_ID :TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+fetchedTokenSwap.tokenAccountA: 76wemmrLztSzr7sSKQcaqEj8nd717yv1jnx1ajcLh6Vt :tokenAccountA :76wemmrLztSzr7sSKQcaqEj8nd717yv1jnx1ajcLh6Vt
+fetchedTokenSwap.tokenAccountB: 6XHAwZ3uwBC9JXf8CWUG14nLpKeASta8ZA4Smeo3piHe :tokenAccountB :6XHAwZ3uwBC9JXf8CWUG14nLpKeASta8ZA4Smeo3piHe
+fetchedTokenSwap.mintA: ENc1nqkDYGxgm8mjaXNUrtABqciQPSMFvZ9fLi9MzFWu :mintA.publicKey :ENc1nqkDYGxgm8mjaXNUrtABqciQPSMFvZ9fLi9MzFWu
+fetchedTokenSwap.mintB: FyY4HtHNQDnjRGVauRz3y3ukSpuWi2UpBMagiUc7SQgA :mintB.publicKey :FyY4HtHNQDnjRGVauRz3y3ukSpuWi2UpBMagiUc7SQgA
+fetchedTokenSwap.poolToken: CgdchnjfsyyhnogTo5WutMJKW1nDgwzgEJKWyr4TgM13 :tokenPool.publicKey :CgdchnjfsyyhnogTo5WutMJKW1nDgwzgEJKWyr4TgM13
+fetchedTokenSwap.feeAccount: CZjKEXeURxKuLxo1m1tzpC3FGVmojyBUBKqf4bGB4fzD :feeAccount :CZjKEXeURxKuLxo1m1tzpC3FGVmojyBUBKqf4bGB4fzD
+TRADING_FEE_NUMERATOR: 25 :fetchedTokenSwap.tradeFeeNumerator.toNumber() :25
+TRADING_FEE_DENOMINATOR: 10000 :fetchedTokenSwap.tradeFeeDenominator.toNumber() :10000
+OWNER_TRADING_FEE_NUMERATOR: 5 :fetchedTokenSwap.ownerTradeFeeNumerator.toNumber() :5
+OWNER_TRADING_FEE_DENOMINATOR: 10000 :fetchedTokenSwap.ownerTradeFeeDenominator.toNumber() :10000
+OWNER_WITHDRAW_FEE_NUMERATOR: 1 :fetchedTokenSwap.ownerWithdrawFeeNumerator.toNumber() :1
+OWNER_WITHDRAW_FEE_DENOMINATOR: 6 :fetchedTokenSwap.ownerWithdrawFeeDenominator.toNumber() :6
+HOST_FEE_NUMERATOR: 20 :fetchedTokenSwap.hostFeeNumerator.toNumber() :20
+HOST_FEE_DENOMINATOR: 100 :fetchedTokenSwap.hostFeeDenominator.toNumber() :100
+curveType: 0 :fetchedTokenSwap.curveType :0
+CurveType.ConstantProduct :0
+Run test: deposit all token types
+Creating depositor token a account
+Creating depositor token b account
+Creating depositor pool token account
+Depositing into swap
+Run test: withdraw all token types
+Creating withdraw token A account
+Creating withdraw token B account
+Approving withdrawal from pool account
+Withdrawing pool tokens for A and B tokens
+Run test: swap
+Creating swap token a account
+Creating swap token b account
+Swapping
+Run test: create account, approve, swap all at once
+Creating swap token a account
+sending big instruction
+SIGNATURE 2MZNrKDaJJbp5upWjzXDyzgVdoB5nKkiooA5tHEXRw9fGE9QwWwiJ2Y9JACaDw7qv3zviYi3PbbRDvkbz9pfmuM9
+Run test: deposit one exact amount in
+Creating depositor token a account
+Creating depositor token b account
+Creating depositor pool token account
+Depositing token A into swap
+Depositing token B into swap
+Run test: withrdaw one exact amount out
+Creating withdraw token a account
+Creating withdraw token b account
+Creating withdraw pool token account
+Withdrawing token A only
+Withdrawing token B only
+Success
