@@ -33,6 +33,8 @@ let mintB: Token;
 let tokenAccountA: PublicKey;
 let tokenAccountB: PublicKey;
 
+let publicKey: PublicKey;
+
 // Hard-coded fee address, for testing production mode
 const SWAP_PROGRAM_OWNER_FEE_ADDRESS =
   process.env.SWAP_PROGRAM_OWNER_FEE_ADDRESS;
@@ -91,238 +93,243 @@ export async function createTokenSwap(
   curveParameters?: Numberu64,
 ): Promise<void> {
   const connection = await getConnection();
-  const payer = await newAccountWithLamports(connection, 1000000000);
+  console.log("Into Create Token Swap");
+  // const payer = await newAccountWithLamports(connection, 1000000000);
+  const payer = {publicKey:'GeGed5XgDf89fTnET8wq7YjXJUeqA53ECypckBvfZyrG'};
   console.log('payer.publicKey :'+payer.publicKey);
+  // console.log('payer.secretKey :'+payer.secretKey);
+  console.log('payer.publicKey :'+payer);
+
   //code to get Payer account Info
   const payerInfo = await connection.getAccountInfo(payer.publicKey, 'confirmed');
   console.log("payerInfo : ");
   console.log(payerInfo);
 
-  //code to get Payer account Balacne
-  const payerBalance = await connection.getBalance(payer.publicKey, 'confirmed')
-  console.log("payerBalance : ")
-  console.log(payerBalance)
+  // //code to get Payer account Balacne
+  // const payerBalance = await connection.getBalance(payer.publicKey, 'confirmed')
+  // console.log("payerBalance : ")
+  // console.log(payerBalance)
 
-  owner = await newAccountWithLamports(connection, 1000000000);
-  console.log('owner.publicKey :'+owner.publicKey);
+  // owner = await newAccountWithLamports(connection, 1000000000);
+  // console.log('owner.publicKey :'+owner.publicKey);
   
-  //code to get owner account Info
-  const ownerInfo = await connection.getAccountInfo(owner.publicKey, 'confirmed');
-  console.log("ownerInfo : ");
-  console.log(ownerInfo);
+  // //code to get owner account Info
+  // const ownerInfo = await connection.getAccountInfo(owner.publicKey, 'confirmed');
+  // console.log("ownerInfo : ");
+  // console.log(ownerInfo);
 
-  //code to get owner account Balacne
-  const ownerBalance = await connection.getBalance(owner.publicKey, 'confirmed');
-  console.log("ownerBalance : ");
-  console.log(ownerBalance);
+  // //code to get owner account Balacne
+  // const ownerBalance = await connection.getBalance(owner.publicKey, 'confirmed');
+  // console.log("ownerBalance : ");
+  // console.log(ownerBalance);
 
-  const tokenSwapAccount = new Account();
-  console.log("TOKEN_SWAP_PROGRAM_ID :"+TOKEN_SWAP_PROGRAM_ID);
-  console.log("[tokenSwapAccount.publicKey.toBuffer()] :"+[tokenSwapAccount.publicKey]);
+  // const tokenSwapAccount = new Account();
+  // console.log("TOKEN_SWAP_PROGRAM_ID :"+TOKEN_SWAP_PROGRAM_ID);
+  // console.log("[tokenSwapAccount.publicKey.toBuffer()] :"+[tokenSwapAccount.publicKey]);
   
-  //code to get tokenSwapAccount account Info
-  const tokenSwapAccountInfo = await connection.getAccountInfo(tokenSwapAccount.publicKey, 'confirmed');
-  console.log("tokenSwapAccountInfo : ");
-  console.log(tokenSwapAccountInfo);
+  // //code to get tokenSwapAccount account Info
+  // const tokenSwapAccountInfo = await connection.getAccountInfo(tokenSwapAccount.publicKey, 'confirmed');
+  // console.log("tokenSwapAccountInfo : ");
+  // console.log(tokenSwapAccountInfo);
 
-  [authority, bumpSeed] = await PublicKey.findProgramAddress(
-    [tokenSwapAccount.publicKey.toBuffer()],
-    TOKEN_SWAP_PROGRAM_ID,
-  );
-  console.log('authority :'+authority)
-  console.log('bumpSeed :'+bumpSeed)
-  console.log('creating pool mint');
-  console.log('TOKEN_PROGRAM_ID :'+TOKEN_PROGRAM_ID);
-  //Here is the code we are creating mint. In this we are adding details of payer
-  tokenPool = await Token.createMint(
-    connection,
-    payer,
-    authority,
-    null,
-    2,
-    TOKEN_PROGRAM_ID,
-  );
-  console.log('--------------------------------tokenPool--------------------------------');
-  console.log(tokenPool);
+  // [authority, bumpSeed] = await PublicKey.findProgramAddress(
+  //   [tokenSwapAccount.publicKey.toBuffer()],
+  //   TOKEN_SWAP_PROGRAM_ID,
+  // );
+  // console.log('authority :'+authority)
+  // console.log('bumpSeed :'+bumpSeed)
+  // console.log('creating pool mint');
+  // console.log('TOKEN_PROGRAM_ID :'+TOKEN_PROGRAM_ID);
+  // //Here is the code we are creating mint. In this we are adding details of payer
+  // tokenPool = await Token.createMint(
+  //   connection,
+  //   payer,
+  //   authority,
+  //   null,
+  //   2,
+  //   TOKEN_PROGRAM_ID,
+  // );
+  // console.log('--------------------------------tokenPool--------------------------------');
+  // console.log(tokenPool);
   
-  //code to get tokenSwapAccount account Info
-  const tokenPoolInfo = await connection.getAccountInfo(tokenPool.publicKey, 'confirmed');
-  console.log("tokenPoolInfo : ");
-  console.log(tokenPoolInfo);
+  // //code to get tokenSwapAccount account Info
+  // const tokenPoolInfo = await connection.getAccountInfo(tokenPool.publicKey, 'confirmed');
+  // console.log("tokenPoolInfo : ");
+  // console.log(tokenPoolInfo);
 
-  console.log('creating pool account');
+  // console.log('creating pool account');
   
-  tokenAccountPool = await tokenPool.createAccount(owner.publicKey);
-  console.log('tokenAccountPool :'+tokenAccountPool);
-  //Code to get token account balance info
-  const tokenAccountPoolBalance = await connection.getTokenAccountBalance(tokenAccountPool);
-  console.log("tokenAccountPool address: ", tokenAccountPoolBalance)
+  // tokenAccountPool = await tokenPool.createAccount(owner.publicKey);
+  // console.log('tokenAccountPool :'+tokenAccountPool);
+  // //Code to get token account balance info
+  // const tokenAccountPoolBalance = await connection.getTokenAccountBalance(tokenAccountPool);
+  // console.log("tokenAccountPool address: ", tokenAccountPoolBalance)
 
-  const ownerKey = SWAP_PROGRAM_OWNER_FEE_ADDRESS || owner.publicKey.toString();
-  feeAccount = await tokenPool.createAccount(new PublicKey(ownerKey));
-  console.log('feeAccount :'+feeAccount);
+  // const ownerKey = SWAP_PROGRAM_OWNER_FEE_ADDRESS || owner.publicKey.toString();
+  // feeAccount = await tokenPool.createAccount(new PublicKey(ownerKey));
+  // console.log('feeAccount :'+feeAccount);
   
-  //code to get tokenSwapAccount account Info
-  const feeAccountInfo = await connection.getAccountInfo(feeAccount, 'confirmed');
-  console.log("feeAccountInfo : ");
-  console.log(feeAccountInfo);
+  // //code to get tokenSwapAccount account Info
+  // const feeAccountInfo = await connection.getAccountInfo(feeAccount, 'confirmed');
+  // console.log("feeAccountInfo : ");
+  // console.log(feeAccountInfo);
 
-  console.log('creating token A');
-  mintA = await Token.createMint(
-    connection,
-    payer,
-    owner.publicKey,
-    null,
-    2,
-    TOKEN_PROGRAM_ID,
-  );
-  console.log('--------------------------------mintA--------------------------------');
-  console.log(mintA);
+  // console.log('creating token A');
+  // mintA = await Token.createMint(
+  //   connection,
+  //   payer,
+  //   owner.publicKey,
+  //   null,
+  //   2,
+  //   TOKEN_PROGRAM_ID,
+  // );
+  // console.log('--------------------------------mintA--------------------------------');
+  // console.log(mintA);
 
-  //code to get tokenSwapAccount account Info
-  const mintAInfo = await connection.getAccountInfo(mintA.publicKey, 'confirmed');
-  console.log("mintAInfo : ");
-  console.log(mintAInfo);
+  // //code to get tokenSwapAccount account Info
+  // const mintAInfo = await connection.getAccountInfo(mintA.publicKey, 'confirmed');
+  // console.log("mintAInfo : ");
+  // console.log(mintAInfo);
 
-  console.log('creating token A account');
-  tokenAccountA = await mintA.createAccount(authority);
-  console.log('tokenAccountA :'+tokenAccountA);
+  // console.log('creating token A account');
+  // tokenAccountA = await mintA.createAccount(authority);
+  // console.log('tokenAccountA :'+tokenAccountA);
 
-  //Code to get tokenAccountA token account balance info
-  const tokenAccountABalance = await connection.getTokenAccountBalance(tokenAccountA);
-  console.log("tokenAccountABalance address: ", tokenAccountABalance)
+  // //Code to get tokenAccountA token account balance info
+  // const tokenAccountABalance = await connection.getTokenAccountBalance(tokenAccountA);
+  // console.log("tokenAccountABalance address: ", tokenAccountABalance)
 
-  console.log('minting token A to swap');
-  await mintA.mintTo(tokenAccountA, owner, [], currentSwapTokenA);
+  // console.log('minting token A to swap');
+  // await mintA.mintTo(tokenAccountA, owner, [], currentSwapTokenA);
 
-  //Code to get tokenAccountA token account balance info
-  const tokenAccountABalanceAfterMint = await connection.getTokenAccountBalance(tokenAccountA);
-  console.log("tokenAccountABalanceAfterMint address: ", tokenAccountABalanceAfterMint)
+  // //Code to get tokenAccountA token account balance info
+  // const tokenAccountABalanceAfterMint = await connection.getTokenAccountBalance(tokenAccountA);
+  // console.log("tokenAccountABalanceAfterMint address: ", tokenAccountABalanceAfterMint)
 
 
-  console.log('creating token B');
-  mintB = await Token.createMint(
-    connection,
-    payer,
-    owner.publicKey,
-    null,
-    2,
-    TOKEN_PROGRAM_ID,
-  );
-  console.log('--------------------------------mintB--------------------------------');
-  console.log(mintB);
+  // console.log('creating token B');
+  // mintB = await Token.createMint(
+  //   connection,
+  //   payer,
+  //   owner.publicKey,
+  //   null,
+  //   2,
+  //   TOKEN_PROGRAM_ID,
+  // );
+  // console.log('--------------------------------mintB--------------------------------');
+  // console.log(mintB);
 
-  //code to get mintB Account account Info
-  const mintBInfo = await connection.getAccountInfo(mintB.publicKey, 'confirmed');
-  console.log("mintBInfo : ");
-  console.log(mintBInfo);
+  // //code to get mintB Account account Info
+  // const mintBInfo = await connection.getAccountInfo(mintB.publicKey, 'confirmed');
+  // console.log("mintBInfo : ");
+  // console.log(mintBInfo);
  
-  console.log('creating token B account');
-  tokenAccountB = await mintB.createAccount(authority);
-  console.log('tokenAccountB :'+tokenAccountB);
+  // console.log('creating token B account');
+  // tokenAccountB = await mintB.createAccount(authority);
+  // console.log('tokenAccountB :'+tokenAccountB);
   
-  //Code to get tokenAccountA token account balance info
-  const tokenAccountBBalance = await connection.getTokenAccountBalance(tokenAccountB);
-  console.log("tokenAccountBBalance address: ", tokenAccountBBalance)
+  // //Code to get tokenAccountA token account balance info
+  // const tokenAccountBBalance = await connection.getTokenAccountBalance(tokenAccountB);
+  // console.log("tokenAccountBBalance address: ", tokenAccountBBalance);
 
-  console.log('minting token B to swap');
-  await mintB.mintTo(tokenAccountB, owner, [], currentSwapTokenB);
+  // console.log('minting token B to swap');
+  // await mintB.mintTo(tokenAccountB, owner, [], currentSwapTokenB);
 
-  //Code to get tokenAccountA token account balance info
-  const tokenAccountBBalanceAfterMint = await connection.getTokenAccountBalance(tokenAccountB);
-  console.log("tokenAccountBBalanceAfterMint address: ", tokenAccountBBalanceAfterMint)
+  // //Code to get tokenAccountA token account balance info
+  // const tokenAccountBBalanceAfterMint = await connection.getTokenAccountBalance(tokenAccountB);
+  // console.log("tokenAccountBBalanceAfterMint address: ", tokenAccountBBalanceAfterMint);
 
-  console.log('creating token swap');
-  const swapPayer = await newAccountWithLamports(connection, 10000000000);
-  console.log('--------------------------------swapPayer--------------------------------');
-  console.log(swapPayer);
-  tokenSwap = await TokenSwap.createTokenSwap(
-    connection,
-    swapPayer,
-    tokenSwapAccount,
-    authority,
-    tokenAccountA,
-    tokenAccountB,
-    tokenPool.publicKey,
-    mintA.publicKey,
-    mintB.publicKey,
-    feeAccount,
-    tokenAccountPool,
-    TOKEN_SWAP_PROGRAM_ID,
-    TOKEN_PROGRAM_ID,
-    TRADING_FEE_NUMERATOR,
-    TRADING_FEE_DENOMINATOR,
-    OWNER_TRADING_FEE_NUMERATOR,
-    OWNER_TRADING_FEE_DENOMINATOR,
-    OWNER_WITHDRAW_FEE_NUMERATOR,
-    OWNER_WITHDRAW_FEE_DENOMINATOR,
-    HOST_FEE_NUMERATOR,
-    HOST_FEE_DENOMINATOR,
-    curveType,
-    curveParameters,
-  );
-  console.log('--------------------------------tokenSwap--------------------------------')
-  console.log(tokenSwap)
-  console.log('loading token swap');
+  // console.log('creating token swap');
+  // const swapPayer = await newAccountWithLamports(connection, 10000000000);
+  // console.log('--------------------------------swapPayer--------------------------------');
+  // console.log(swapPayer);
+  // tokenSwap = await TokenSwap.createTokenSwap(
+  //   connection,
+  //   swapPayer,
+  //   tokenSwapAccount,
+  //   authority,
+  //   tokenAccountA,
+  //   tokenAccountB,
+  //   tokenPool.publicKey,
+  //   mintA.publicKey,
+  //   mintB.publicKey,
+  //   feeAccount,
+  //   tokenAccountPool,
+  //   TOKEN_SWAP_PROGRAM_ID,
+  //   TOKEN_PROGRAM_ID,
+  //   TRADING_FEE_NUMERATOR,
+  //   TRADING_FEE_DENOMINATOR,
+  //   OWNER_TRADING_FEE_NUMERATOR,
+  //   OWNER_TRADING_FEE_DENOMINATOR,
+  //   OWNER_WITHDRAW_FEE_NUMERATOR,
+  //   OWNER_WITHDRAW_FEE_DENOMINATOR,
+  //   HOST_FEE_NUMERATOR,
+  //   HOST_FEE_DENOMINATOR,
+  //   curveType,
+  //   curveParameters,
+  // );
+  // console.log('--------------------------------tokenSwap--------------------------------')
+  // console.log(tokenSwap)
+  // console.log('loading token swap');
   
-  const fetchedTokenSwap = await TokenSwap.loadTokenSwap(
-    connection,
-    tokenSwapAccount.publicKey,
-    TOKEN_SWAP_PROGRAM_ID,
-    swapPayer,
-  );
+  // const fetchedTokenSwap = await TokenSwap.loadTokenSwap(
+  //   connection,
+  //   tokenSwapAccount.publicKey,
+  //   TOKEN_SWAP_PROGRAM_ID,
+  //   swapPayer,
+  // );
   
-  console.log("fetchedTokenSwap.tokenProgramId: "+fetchedTokenSwap.tokenProgramId+" :TOKEN_PROGRAM_ID :"+TOKEN_PROGRAM_ID)
-  console.log("fetchedTokenSwap.tokenAccountA: "+fetchedTokenSwap.tokenAccountA+" :tokenAccountA :"+tokenAccountA)
-  console.log("fetchedTokenSwap.tokenAccountB: "+fetchedTokenSwap.tokenAccountB+" :tokenAccountB :"+tokenAccountB)
-  console.log("fetchedTokenSwap.mintA: "+fetchedTokenSwap.mintA+" :mintA.publicKey :"+mintA.publicKey)
-  console.log("fetchedTokenSwap.mintB: "+fetchedTokenSwap.mintB+" :mintB.publicKey :"+mintB.publicKey)
-  console.log("fetchedTokenSwap.poolToken: "+fetchedTokenSwap.poolToken+" :tokenPool.publicKey :"+tokenPool.publicKey)
-  console.log("fetchedTokenSwap.feeAccount: "+fetchedTokenSwap.feeAccount+" :feeAccount :"+feeAccount)
-  console.log("TRADING_FEE_NUMERATOR: "+TRADING_FEE_NUMERATOR+" :fetchedTokenSwap.tradeFeeNumerator.toNumber() :"+fetchedTokenSwap.tradeFeeNumerator.toNumber())
-  console.log("TRADING_FEE_DENOMINATOR: "+TRADING_FEE_DENOMINATOR+" :fetchedTokenSwap.tradeFeeDenominator.toNumber() :"+fetchedTokenSwap.tradeFeeDenominator.toNumber())
-  console.log("OWNER_TRADING_FEE_NUMERATOR: "+OWNER_TRADING_FEE_NUMERATOR+" :fetchedTokenSwap.ownerTradeFeeNumerator.toNumber() :"+fetchedTokenSwap.ownerTradeFeeNumerator.toNumber())
-  console.log("OWNER_TRADING_FEE_DENOMINATOR: "+OWNER_TRADING_FEE_DENOMINATOR+" :fetchedTokenSwap.ownerTradeFeeDenominator.toNumber() :"+fetchedTokenSwap.ownerTradeFeeDenominator.toNumber())
-  console.log("OWNER_WITHDRAW_FEE_NUMERATOR: "+OWNER_WITHDRAW_FEE_NUMERATOR+" :fetchedTokenSwap.ownerWithdrawFeeNumerator.toNumber() :"+fetchedTokenSwap.ownerWithdrawFeeNumerator.toNumber())
-  console.log("OWNER_WITHDRAW_FEE_DENOMINATOR: "+OWNER_WITHDRAW_FEE_DENOMINATOR+" :fetchedTokenSwap.ownerWithdrawFeeDenominator.toNumber() :"+fetchedTokenSwap.ownerWithdrawFeeDenominator.toNumber())
-  console.log("HOST_FEE_NUMERATOR: "+HOST_FEE_NUMERATOR+" :fetchedTokenSwap.hostFeeNumerator.toNumber() :"+fetchedTokenSwap.hostFeeNumerator.toNumber())
-  console.log("HOST_FEE_DENOMINATOR: "+HOST_FEE_DENOMINATOR+" :fetchedTokenSwap.hostFeeDenominator.toNumber() :"+fetchedTokenSwap.hostFeeDenominator.toNumber())
-  console.log("curveType: "+curveType+" :fetchedTokenSwap.curveType :"+fetchedTokenSwap.curveType)
+  // console.log("fetchedTokenSwap.tokenProgramId: "+fetchedTokenSwap.tokenProgramId+" :TOKEN_PROGRAM_ID :"+TOKEN_PROGRAM_ID)
+  // console.log("fetchedTokenSwap.tokenAccountA: "+fetchedTokenSwap.tokenAccountA+" :tokenAccountA :"+tokenAccountA)
+  // console.log("fetchedTokenSwap.tokenAccountB: "+fetchedTokenSwap.tokenAccountB+" :tokenAccountB :"+tokenAccountB)
+  // console.log("fetchedTokenSwap.mintA: "+fetchedTokenSwap.mintA+" :mintA.publicKey :"+mintA.publicKey)
+  // console.log("fetchedTokenSwap.mintB: "+fetchedTokenSwap.mintB+" :mintB.publicKey :"+mintB.publicKey)
+  // console.log("fetchedTokenSwap.poolToken: "+fetchedTokenSwap.poolToken+" :tokenPool.publicKey :"+tokenPool.publicKey)
+  // console.log("fetchedTokenSwap.feeAccount: "+fetchedTokenSwap.feeAccount+" :feeAccount :"+feeAccount)
+  // console.log("TRADING_FEE_NUMERATOR: "+TRADING_FEE_NUMERATOR+" :fetchedTokenSwap.tradeFeeNumerator.toNumber() :"+fetchedTokenSwap.tradeFeeNumerator.toNumber())
+  // console.log("TRADING_FEE_DENOMINATOR: "+TRADING_FEE_DENOMINATOR+" :fetchedTokenSwap.tradeFeeDenominator.toNumber() :"+fetchedTokenSwap.tradeFeeDenominator.toNumber())
+  // console.log("OWNER_TRADING_FEE_NUMERATOR: "+OWNER_TRADING_FEE_NUMERATOR+" :fetchedTokenSwap.ownerTradeFeeNumerator.toNumber() :"+fetchedTokenSwap.ownerTradeFeeNumerator.toNumber())
+  // console.log("OWNER_TRADING_FEE_DENOMINATOR: "+OWNER_TRADING_FEE_DENOMINATOR+" :fetchedTokenSwap.ownerTradeFeeDenominator.toNumber() :"+fetchedTokenSwap.ownerTradeFeeDenominator.toNumber())
+  // console.log("OWNER_WITHDRAW_FEE_NUMERATOR: "+OWNER_WITHDRAW_FEE_NUMERATOR+" :fetchedTokenSwap.ownerWithdrawFeeNumerator.toNumber() :"+fetchedTokenSwap.ownerWithdrawFeeNumerator.toNumber())
+  // console.log("OWNER_WITHDRAW_FEE_DENOMINATOR: "+OWNER_WITHDRAW_FEE_DENOMINATOR+" :fetchedTokenSwap.ownerWithdrawFeeDenominator.toNumber() :"+fetchedTokenSwap.ownerWithdrawFeeDenominator.toNumber())
+  // console.log("HOST_FEE_NUMERATOR: "+HOST_FEE_NUMERATOR+" :fetchedTokenSwap.hostFeeNumerator.toNumber() :"+fetchedTokenSwap.hostFeeNumerator.toNumber())
+  // console.log("HOST_FEE_DENOMINATOR: "+HOST_FEE_DENOMINATOR+" :fetchedTokenSwap.hostFeeDenominator.toNumber() :"+fetchedTokenSwap.hostFeeDenominator.toNumber())
+  // console.log("curveType: "+curveType+" :fetchedTokenSwap.curveType :"+fetchedTokenSwap.curveType)
   
-  assert(fetchedTokenSwap.tokenProgramId.equals(TOKEN_PROGRAM_ID));
-  assert(fetchedTokenSwap.tokenAccountA.equals(tokenAccountA));
-  assert(fetchedTokenSwap.tokenAccountB.equals(tokenAccountB));
-  assert(fetchedTokenSwap.mintA.equals(mintA.publicKey));
-  assert(fetchedTokenSwap.mintB.equals(mintB.publicKey));
-  assert(fetchedTokenSwap.poolToken.equals(tokenPool.publicKey));
-  assert(fetchedTokenSwap.feeAccount.equals(feeAccount));
-  assert(
-    TRADING_FEE_NUMERATOR == fetchedTokenSwap.tradeFeeNumerator.toNumber(),
-  );
-  assert(
-    TRADING_FEE_DENOMINATOR == fetchedTokenSwap.tradeFeeDenominator.toNumber(),
-  );
-  assert(
-    OWNER_TRADING_FEE_NUMERATOR ==
-      fetchedTokenSwap.ownerTradeFeeNumerator.toNumber(),
-  );
-  assert(
-    OWNER_TRADING_FEE_DENOMINATOR ==
-      fetchedTokenSwap.ownerTradeFeeDenominator.toNumber(),
-  );
-  assert(
-    OWNER_WITHDRAW_FEE_NUMERATOR ==
-      fetchedTokenSwap.ownerWithdrawFeeNumerator.toNumber(),
-  );
-  assert(
-    OWNER_WITHDRAW_FEE_DENOMINATOR ==
-      fetchedTokenSwap.ownerWithdrawFeeDenominator.toNumber(),
-  );
-  assert(HOST_FEE_NUMERATOR == fetchedTokenSwap.hostFeeNumerator.toNumber());
-  assert(
-    HOST_FEE_DENOMINATOR == fetchedTokenSwap.hostFeeDenominator.toNumber(),
-  );
-  assert(curveType == fetchedTokenSwap.curveType);
+  // assert(fetchedTokenSwap.tokenProgramId.equals(TOKEN_PROGRAM_ID));
+  // assert(fetchedTokenSwap.tokenAccountA.equals(tokenAccountA));
+  // assert(fetchedTokenSwap.tokenAccountB.equals(tokenAccountB));
+  // assert(fetchedTokenSwap.mintA.equals(mintA.publicKey));
+  // assert(fetchedTokenSwap.mintB.equals(mintB.publicKey));
+  // assert(fetchedTokenSwap.poolToken.equals(tokenPool.publicKey));
+  // assert(fetchedTokenSwap.feeAccount.equals(feeAccount));
+  // assert(
+  //   TRADING_FEE_NUMERATOR == fetchedTokenSwap.tradeFeeNumerator.toNumber(),
+  // );
+  // assert(
+  //   TRADING_FEE_DENOMINATOR == fetchedTokenSwap.tradeFeeDenominator.toNumber(),
+  // );
+  // assert(
+  //   OWNER_TRADING_FEE_NUMERATOR ==
+  //     fetchedTokenSwap.ownerTradeFeeNumerator.toNumber(),
+  // );
+  // assert(
+  //   OWNER_TRADING_FEE_DENOMINATOR ==
+  //     fetchedTokenSwap.ownerTradeFeeDenominator.toNumber(),
+  // );
+  // assert(
+  //   OWNER_WITHDRAW_FEE_NUMERATOR ==
+  //     fetchedTokenSwap.ownerWithdrawFeeNumerator.toNumber(),
+  // );
+  // assert(
+  //   OWNER_WITHDRAW_FEE_DENOMINATOR ==
+  //     fetchedTokenSwap.ownerWithdrawFeeDenominator.toNumber(),
+  // );
+  // assert(HOST_FEE_NUMERATOR == fetchedTokenSwap.hostFeeNumerator.toNumber());
+  // assert(
+  //   HOST_FEE_DENOMINATOR == fetchedTokenSwap.hostFeeDenominator.toNumber(),
+  // );
+  // assert(curveType == fetchedTokenSwap.curveType);
 }
 
 export async function depositAllTokenTypes(): Promise<void> {
@@ -606,7 +613,7 @@ export async function swap(): Promise<void> {
   //Code to get userAccountABalanceSwap token account balance info
   const ownerpublicKeyBalanceBeforeMintSwap = await connection.getAccountInfo(owner.publicKey);
   console.log("ownerpublicKeyBalanceBeforeMintSwap address: ", ownerpublicKeyBalanceBeforeMintSwap);
-
+  
   await mintA.mintTo(userAccountA, owner, [], SWAP_AMOUNT_IN);
 
   //Code to get userAccountABalanceSwap token account balance info
