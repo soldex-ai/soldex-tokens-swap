@@ -95,7 +95,7 @@ export async function createTokenSwap(
   const connection = await getConnection();
   console.log("Into Create Token Swap");
   // const payer = await newAccountWithLamports(connection, 1000000000);
-  const payer = {publicKey:'GeGed5XgDf89fTnET8wq7YjXJUeqA53ECypckBvfZyrG'};
+  const payer = new Account([115,176,221,101,116,240,62,62,244,79,203,15,139,92,9,47,103,102,169,25,196,211,222,127,103,150,167,173,191,11,231,201,226,151,220,216,5,185,80,246,152,147,79,75,178,255,136,133,242,9,47,191,181,194,206,10,82,160,223,253,24,70,201,183]);
   console.log('payer.publicKey :'+payer.publicKey);
   // console.log('payer.secretKey :'+payer.secretKey);
   console.log('payer.publicKey :'+payer);
@@ -105,23 +105,24 @@ export async function createTokenSwap(
   console.log("payerInfo : ");
   console.log(payerInfo);
 
-  // //code to get Payer account Balacne
-  // const payerBalance = await connection.getBalance(payer.publicKey, 'confirmed')
-  // console.log("payerBalance : ")
-  // console.log(payerBalance)
+  //code to get Payer account Balacne
+  const payerBalance = await connection.getBalance(payer.publicKey, 'confirmed')
+  console.log("payerBalance : ")
+  console.log(payerBalance)
 
   // owner = await newAccountWithLamports(connection, 1000000000);
-  // console.log('owner.publicKey :'+owner.publicKey);
+  owner = new Account([104,182,93,120,237,103,107,165,92,59,76,233,199,185,154,182,213,177,215,133,25,58,192,250,63,128,201,231,23,91,103,159,102,149,205,116,193,94,24,16,170,102,227,135,119,150,177,231,239,242,65,180,84,251,57,134,74,7,57,125,179,91,166,230]);
+  console.log('owner.publicKey :'+owner.publicKey);
   
-  // //code to get owner account Info
-  // const ownerInfo = await connection.getAccountInfo(owner.publicKey, 'confirmed');
-  // console.log("ownerInfo : ");
-  // console.log(ownerInfo);
+  //code to get owner account Info
+  const ownerInfo = await connection.getAccountInfo(owner.publicKey, 'confirmed');
+  console.log("ownerInfo : ");
+  console.log(ownerInfo);
 
-  // //code to get owner account Balacne
-  // const ownerBalance = await connection.getBalance(owner.publicKey, 'confirmed');
-  // console.log("ownerBalance : ");
-  // console.log(ownerBalance);
+  //code to get owner account Balacne
+  const ownerBalance = await connection.getBalance(owner.publicKey, 'confirmed');
+  console.log("ownerBalance : ");
+  console.log(ownerBalance);
 
   // const tokenSwapAccount = new Account();
   // console.log("TOKEN_SWAP_PROGRAM_ID :"+TOKEN_SWAP_PROGRAM_ID);
