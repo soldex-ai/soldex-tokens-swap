@@ -124,34 +124,34 @@ export async function createTokenSwap(
   console.log("ownerBalance : ");
   console.log(ownerBalance);
 
-  // const tokenSwapAccount = new Account();
-  // console.log("TOKEN_SWAP_PROGRAM_ID :"+TOKEN_SWAP_PROGRAM_ID);
-  // console.log("[tokenSwapAccount.publicKey.toBuffer()] :"+[tokenSwapAccount.publicKey]);
+  const tokenSwapAccount = new Account([153,138,184,221,164,84,213,27,231,64,92,7,15,184,231,57,106,84,168,3,201,211,221,137,168,27,47,53,56,73,2,70,182,160,117,82,6,220,111,104,176,224,206,36,106,147,103,111,61,201,170,51,66,176,91,80,144,192,111,201,107,18,104,35]);
+  console.log("TOKEN_SWAP_PROGRAM_ID :"+TOKEN_SWAP_PROGRAM_ID);
+  console.log("[tokenSwapAccount.publicKey.toBuffer()] :"+[tokenSwapAccount.publicKey]);
   
-  // //code to get tokenSwapAccount account Info
-  // const tokenSwapAccountInfo = await connection.getAccountInfo(tokenSwapAccount.publicKey, 'confirmed');
-  // console.log("tokenSwapAccountInfo : ");
-  // console.log(tokenSwapAccountInfo);
+  //code to get tokenSwapAccount account Info
+  const tokenSwapAccountInfo = await connection.getAccountInfo(tokenSwapAccount.publicKey, 'confirmed');
+  console.log("tokenSwapAccountInfo : ");
+  console.log(tokenSwapAccountInfo);
 
-  // [authority, bumpSeed] = await PublicKey.findProgramAddress(
-  //   [tokenSwapAccount.publicKey.toBuffer()],
-  //   TOKEN_SWAP_PROGRAM_ID,
-  // );
-  // console.log('authority :'+authority)
-  // console.log('bumpSeed :'+bumpSeed)
-  // console.log('creating pool mint');
-  // console.log('TOKEN_PROGRAM_ID :'+TOKEN_PROGRAM_ID);
-  // //Here is the code we are creating mint. In this we are adding details of payer
-  // tokenPool = await Token.createMint(
-  //   connection,
-  //   payer,
-  //   authority,
-  //   null,
-  //   2,
-  //   TOKEN_PROGRAM_ID,
-  // );
-  // console.log('--------------------------------tokenPool--------------------------------');
-  // console.log(tokenPool);
+  [authority, bumpSeed] = await PublicKey.findProgramAddress(
+    [tokenSwapAccount.publicKey.toBuffer()],
+    TOKEN_SWAP_PROGRAM_ID,
+  );
+  console.log('authority :'+authority)
+  console.log('bumpSeed :'+bumpSeed)
+  console.log('creating pool mint');
+  console.log('TOKEN_PROGRAM_ID :'+TOKEN_PROGRAM_ID);
+  //Here is the code we are creating mint. In this we are adding details of payer
+  tokenPool = await Token.createMint(
+    connection,
+    payer,
+    authority,
+    null,
+    2,
+    TOKEN_PROGRAM_ID,
+  );
+  console.log('--------------------------------tokenPool--------------------------------');
+  console.log(tokenPool);
   
   // //code to get tokenSwapAccount account Info
   // const tokenPoolInfo = await connection.getAccountInfo(tokenPool.publicKey, 'confirmed');
