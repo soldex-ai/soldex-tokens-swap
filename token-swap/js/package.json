@@ -30,6 +30,7 @@
   "scripts": {
     "build": "tsc && tsc -p tsconfig.browser.json && npm run generate:flow",
     "prepare": "npm run build",
+    "test": "ts-node cli/script-main.ts",
     "start": "ts-node cli/main.ts",
     "start-with-test-validator": "start-server-and-test 'solana-test-validator --bpf-program SwaPpA9LAaLfeLi3a68M4DjnLqgtticKg6CnyNwgAC8 ../../target/deploy/spl_token_swap.so --reset --quiet' http://localhost:8899/health start",
     "lint": "npm run pretty && eslint .",
