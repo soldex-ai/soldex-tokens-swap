@@ -1,0 +1,20 @@
+speqto@speqto-Latitude-3520:/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token-swap/js$ solana-keygen new --outfile my-solana-wallet/swapPayer-wallet2-keypair.json
+Generating a new keypair
+
+For added security, enter a BIP39 passphrase
+
+NOTE! This passphrase improves security of the recovery seed phrase NOT the
+keypair file itself, which is stored as insecure plain text
+
+BIP39 Passphrase (empty for none): 
+
+Wrote new keypair to my-solana-wallet/swapPayer-wallet2-keypair.json
+================================================================================
+pubkey: 9VqfLafTwPuJWoTRUpTHNVA1S47EY4aWEGQZpHFp43Hy
+================================================================================
+Save this seed phrase and your BIP39 passphrase to recover your new keypair:
+disagree pencil drip girl fabric dolphin aerobic jaguar wide luxury when trouble
+================================================================================
+
+
+[200,54,156,237,249,17,145,195,91,67,132,91,124,171,69,141,78,65,99,156,255,217,122,141,239,140,71,80,145,149,38,240,126,64,199,123,75,200,23,76,47,191,129,217,8,22,141,158,170,187,13,29,149,70,43,159,215,135,95,211,116,181,220,200]
