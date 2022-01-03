@@ -82,6 +82,8 @@ async function getConnection(): Promise<Connection> {
   if (connection) return connection;
 
   connection = new Connection(url, 'recent');
+  console.log("----------------------------url----------------------------")
+  console.log(url)
   const version = await connection.getVersion();
 
   console.log('Connection to cluster established:', url, version);
@@ -94,8 +96,8 @@ export async function createTokenSwap(
 ): Promise<void> {
   const connection = await getConnection();
   console.log("Into Create Token Swap");
-  // const payer = await newAccountWithLamports(connection, 1000000000);
-  const payer = new Account([176,121,49,226,105,224,98,199,150,200,128,93,46,67,131,120,94,113,47,228,70,184,68,145,96,212,211,223,48,96,194,132,124,79,37,130,191,15,27,222,216,247,181,125,202,66,76,208,57,88,4,161,3,246,237,176,119,154,159,187,40,35,100,110]);
+  const payer = await newAccountWithLamports(connection, 1000000000);
+  // const payer = new Account([3,252,255,110,56,235,208,96,203,90,146,236,230,41,88,76,33,28,90,90,243,88,244,103,66,96,107,224,3,45,100,136,1,131,158,171,65,176,37,87,73,246,32,42,134,115,102,220,187,43,205,32,48,227,55,20,216,162,140,204,8,48,13,62]);
   console.log('payer.publicKey :'+payer.publicKey);
   // console.log('payer.secretKey :'+payer.secretKey);
   console.log('payer.publicKey :'+payer);
@@ -110,8 +112,8 @@ export async function createTokenSwap(
   console.log("payerBalance : ")
   console.log(payerBalance)
 
-  // owner = await newAccountWithLamports(connection, 1000000000);
-  owner = new Account([104,182,93,120,237,103,107,165,92,59,76,233,199,185,154,182,213,177,215,133,25,58,192,250,63,128,201,231,23,91,103,159,102,149,205,116,193,94,24,16,170,102,227,135,119,150,177,231,239,242,65,180,84,251,57,134,74,7,57,125,179,91,166,230]);
+  owner = await newAccountWithLamports(connection, 1000000000);
+  // owner = new Account([73,56,115,178,129,30,214,46,173,205,73,218,155,76,36,55,88,197,72,140,143,146,13,37,101,166,99,10,25,208,86,233,111,57,17,175,12,145,1,171,239,96,169,234,165,95,18,57,54,75,88,186,102,130,60,151,169,88,43,44,191,251,198,185]);
   console.log('owner.publicKey :'+owner.publicKey);
   
   //code to get owner account Info
@@ -123,8 +125,8 @@ export async function createTokenSwap(
   const ownerBalance = await connection.getBalance(owner.publicKey, 'confirmed');
   console.log("ownerBalance : ");
   console.log(ownerBalance);
-
-  const tokenSwapAccount = new Account([153,138,184,221,164,84,213,27,231,64,92,7,15,184,231,57,106,84,168,3,201,211,221,137,168,27,47,53,56,73,2,70,182,160,117,82,6,220,111,104,176,224,206,36,106,147,103,111,61,201,170,51,66,176,91,80,144,192,111,201,107,18,104,35]);
+  const tokenSwapAccount = new Account();
+  // const tokenSwapAccount = new Account([6,55,212,32,138,154,224,213,4,124,140,206,58,30,180,205,75,207,187,1,89,11,4,141,44,153,140,240,2,24,246,183,32,63,55,13,168,40,227,239,10,220,191,166,170,49,31,206,81,244,83,76,251,240,149,58,86,46,255,242,233,100,181,53]);
   console.log("TOKEN_SWAP_PROGRAM_ID :"+TOKEN_SWAP_PROGRAM_ID);
   console.log("[tokenSwapAccount.publicKey.toBuffer()] :"+[tokenSwapAccount.publicKey]);
   
@@ -242,7 +244,7 @@ export async function createTokenSwap(
 
   console.log('creating token swap');
   // const swapPayer = await newAccountWithLamports(connection, 10000000000);
-  const swapPayer = new Account([221,100,128,78,226,216,48,156,151,6,64,240,165,57,250,51,199,190,159,204,206,142,144,191,6,32,23,171,229,79,79,56,80,139,210,38,69,204,141,67,227,34,7,173,121,146,191,91,105,92,66,1,46,155,233,31,193,126,40,204,198,145,193,238]);;
+  const swapPayer = new Account([200,54,156,237,249,17,145,195,91,67,132,91,124,171,69,141,78,65,99,156,255,217,122,141,239,140,71,80,145,149,38,240,126,64,199,123,75,200,23,76,47,191,129,217,8,22,141,158,170,187,13,29,149,70,43,159,215,135,95,211,116,181,220,200]);
   console.log('--------------------------------swapPayer--------------------------------');
   console.log(swapPayer);
   tokenSwap = await TokenSwap.createTokenSwap(
