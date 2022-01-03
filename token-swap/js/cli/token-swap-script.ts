@@ -96,8 +96,8 @@ export async function createTokenSwap(
 ): Promise<void> {
   const connection = await getConnection();
   console.log("Into Create Token Swap");
-  const payer = await newAccountWithLamports(connection, 1000000000);
-  // const payer = new Account([3,252,255,110,56,235,208,96,203,90,146,236,230,41,88,76,33,28,90,90,243,88,244,103,66,96,107,224,3,45,100,136,1,131,158,171,65,176,37,87,73,246,32,42,134,115,102,220,187,43,205,32,48,227,55,20,216,162,140,204,8,48,13,62]);
+  // const payer = await newAccountWithLamports(connection, 1000000000);
+  const payer = new Account([3,252,255,110,56,235,208,96,203,90,146,236,230,41,88,76,33,28,90,90,243,88,244,103,66,96,107,224,3,45,100,136,1,131,158,171,65,176,37,87,73,246,32,42,134,115,102,220,187,43,205,32,48,227,55,20,216,162,140,204,8,48,13,62]);
   console.log('payer.publicKey :'+payer.publicKey);
   // console.log('payer.secretKey :'+payer.secretKey);
   console.log('payer.publicKey :'+payer);
@@ -112,8 +112,8 @@ export async function createTokenSwap(
   console.log("payerBalance : ")
   console.log(payerBalance)
 
-  owner = await newAccountWithLamports(connection, 1000000000);
-  // owner = new Account([73,56,115,178,129,30,214,46,173,205,73,218,155,76,36,55,88,197,72,140,143,146,13,37,101,166,99,10,25,208,86,233,111,57,17,175,12,145,1,171,239,96,169,234,165,95,18,57,54,75,88,186,102,130,60,151,169,88,43,44,191,251,198,185]);
+  // owner = await newAccountWithLamports(connection, 1000000000);
+  owner = new Account([73,56,115,178,129,30,214,46,173,205,73,218,155,76,36,55,88,197,72,140,143,146,13,37,101,166,99,10,25,208,86,233,111,57,17,175,12,145,1,171,239,96,169,234,165,95,18,57,54,75,88,186,102,130,60,151,169,88,43,44,191,251,198,185]);
   console.log('owner.publicKey :'+owner.publicKey);
   
   //code to get owner account Info
