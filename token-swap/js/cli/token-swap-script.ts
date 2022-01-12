@@ -674,7 +674,7 @@ export async function swap(): Promise<void> {
   console.log("SWAP_AMOUNT_OUT address: ", SWAP_AMOUNT_OUT);
 
   console.log('Swapping');
-  await tokenSwap.swap(
+  var token_val = await tokenSwap.swap(
     userAccountA,
     tokenAccountA,
     tokenAccountB,
@@ -686,7 +686,8 @@ export async function swap(): Promise<void> {
   );
 
   await sleep(500);
-
+  console.log("----------------------Swap Hash----------------------")
+  console.log(token_val)
   //Code to get userAccountABalanceBeforeSwap token account balance info
   let userAccountABalanceAfterSwap = await connection.getTokenAccountBalance(userAccountA);
   console.log("userAccountABalanceAfterSwap address: ", userAccountABalanceAfterSwap);
@@ -697,10 +698,12 @@ export async function swap(): Promise<void> {
 
   //Code to get tokenAccountABalanceBeforeSwap token account balance info
   let tokenAccountBBalanceAfterSwap = await connection.getTokenAccountBalance(tokenAccountB);
+  console.log("tokenAccountBBalanceAfterSwap address: ", tokenAccountB.toString);
   console.log("tokenAccountBBalanceAfterSwap address: ", tokenAccountBBalanceAfterSwap);
 
   //Code to get tokenAccountABalanceBeforeSwap token account balance info
   let userAccountBBalanceAfterSwap = await connection.getTokenAccountBalance(userAccountB);
+  console.log("userAccountBBalanceAfterSwap address: ", userAccountB);
   console.log("userAccountBBalanceAfterSwap address: ", userAccountBBalanceAfterSwap);
 
   // Code to get tokenAccountABalanceBeforeSwap token account balance info

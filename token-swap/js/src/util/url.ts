@@ -21,11 +21,11 @@ export const cluster = chooseCluster();
 
 export const url =
   process.env.RPC_URL ||
-  (process.env.LIVE ? clusterApiUrl(cluster, false) : 'https://misty-divine-log.solana-testnet.quiknode.pro/b38edf1b4f718b97f42fec479e7c14b45ddc0e4f/');
+  (process.env.LIVE ? clusterApiUrl(cluster, false) : ' https://misty-divine-log.solana-testnet.quiknode.pro/b38edf1b4f718b97f42fec479e7c14b45ddc0e4f/');
 
 export const urlTls =
   process.env.RPC_URL ||
-  (process.env.LIVE ? clusterApiUrl(cluster, true) : 'https://misty-divine-log.solana-testnet.quiknode.pro/b38edf1b4f718b97f42fec479e7c14b45ddc0e4f/');
+  (process.env.LIVE ? clusterApiUrl(cluster, true) : ' https://misty-divine-log.solana-testnet.quiknode.pro/b38edf1b4f718b97f42fec479e7c14b45ddc0e4f/');
 
 export let walletUrl =
   process.env.WALLET_URL || 'https://solana-example-webwallet.herokuapp.com/';
