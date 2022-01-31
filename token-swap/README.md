@@ -1,45 +1,45 @@
+# set the solana config 
+you can set your current environment to devnetor testnet. This is the test network for Solana developers writing and testing smart contracts.
+$ solana config set --url https://api.testnet.solana.com (for testnet)
+$ solana config set --url https://api.devnet.solana.com (for devnet)
+# Next, you need to create a new keypair for your account. This is required to interact with deployed programs (smart contracts) on the Solana devnet.
+
+ $ solana-keygen new --force
+
+#Now that you’ve created an account, you can use the airdrop program to obtain some SOL tokens. 
+You will need some lamports (fractions of SOL tokens) to deploy your smart contract. This command requests SOL tokens into your newly generated account: 
+
+$ solana airdrop 5 
+
+
+## Building
+
+To build a development version of the Token Swap program, you can use the normal
+build command for Solana programs:build the rust token swap smart contract.......
+```sh
+$ cargo build-bpf
+```
+//For production versions, the Token Swap Program contains a `production` feature
+//to fix constraints on fees and fee account owner. A developer can
+//deploy the program, allow others to create pools, and earn a "protocol fee" on
+//all activity.
+
+## Deploy the smart contract 
+
+solana program deploy <PATH of FILE>/spl_token_swap.so
+
+You can build the production version of Token Swap running on devnet, testnet, and
+mainnet-beta using the following command:
 # Token Swap Program
 
 A Uniswap-like exchange for the Token program on the Solana blockchain, deployed
 to `TOKEN_SWAP_PROGRAM_ID :35J9s72PQRsHKf7bnsBfQnHYxkchLAaQmN9Bc1x7vS7w` on all networks.
 
-Full documentation is available at https://spl.solana.com/token-swap
 
-JavaScript bindings are available in the `./js` directory.
+//SWAP_PROGRAM_OWNER_FEE_ADDRESS=Hp8wqzZZmmbUunm3Y7CXxZ8qK3iVWSUNSPgfwkgNrtyC(wallet address ) 
 
-## Building
+//Full documentation is available at https://spl.solana.com/token-swap
 
-To build a development version of the Token Swap program, you can use the normal
-build command for Solana programs:
-
-```sh
-cargo build-bpf
-```
-For production versions, the Token Swap Program contains a `production` feature
-to fix constraints on fees and fee account owner. A developer can
-deploy the program, allow others to create pools, and earn a "protocol fee" on
-all activity.
-## Build the on-chain program
-
-$ npm run build:program
-
-
-## Deploy the smart contract
-
-solana program deploy <PATH of FILE>/spl_token_swap.so
-
-Since Solana programs cannot contain any modifiable state, we must hard-code
-all constraints into the program.  `SwapConstraints` in `program/src/constraints.rs`
-contains all hard-coded fields for fees.  Additionally the
-`SWAP_PROGRAM_OWNER_FEE_ADDRESS` environment variable specifies the public key
-that must own all fee accounts.
-
-You can build the production version of Token Swap running on devnet, testnet, and
-mainnet-beta using the following command:
-
-```sh
-SWAP_PROGRAM_OWNER_FEE_ADDRESS=HfoTxFR1Tm6kGmWgYWD6J7YHVy1UwqSULUGVLXkJqaKN cargo build-bpf --features=production
-```
 
 ## The client connects to a local Solana cluster by default.
 
@@ -47,12 +47,17 @@ To enable on-chain program logs, set the RUST_LOG environment variable:
 
 $ export RUST_LOG=solana_runtime::native_loader=trace,solana_runtime::system_instruction_processor=trace,solana_runtime::bank=debug,solana_bpf_loader=debug,solana_rbpf=debug
 
+
+## Build the on-chain program
+
+$ npm run build:program
+
 ## set cluster 
 
 npm run cluster:devnet / npm run cluster:localnet / npm run cluster:testnet(command to set cluster network)
 
 ## Run the test client
-$ npm run start
+$ npm run test (to run the token swap script)
 
 ### Unit tests
 
@@ -108,5 +113,5 @@ npm run start-with-test-validator
 If you are testing a production build, use:
 
 ```sh
-SWAP_PROGRAM_OWNER_FEE_ADDRESS="7uT58uvDWBSpJMRV5QwP5HiBGhFSjRkZWDza4EWiEQUM" npm run start-with-test-validator
+SWAP_PROGRAM_OWNER_FEE_ADDRESS="Hp8wqzZZmmbUunm3Y7CXxZ8qK3iVWSUNSPgfwkgNrtyC" npm run start-with-test-validator
 ```
