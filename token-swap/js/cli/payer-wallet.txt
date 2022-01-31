@@ -1,0 +1,19 @@
+speqto@speqto-Latitude-3520:/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token-swap/js$ solana-keygen new --force
+Generating a new keypair
+
+For added security, enter a BIP39 passphrase
+
+NOTE! This passphrase improves security of the recovery seed phrase NOT the
+keypair file itself, which is stored as insecure plain text
+
+BIP39 Passphrase (empty for none): 
+
+Wrote new keypair to /home/speqto/.config/solana/id.json
+================================================================================
+pubkey: 9NFZ2Ja9D1mtHKaJ6byGZ9VZufjuYMhV4zCKjCFAcbKB
+================================================================================
+Save this seed phrase and your BIP39 passphrase to recover your new keypair:
+tuition swear flower breeze girl balcony blast interest hybrid fresh wisdom just
+================================================================================
+
+[176,121,49,226,105,224,98,199,150,200,128,93,46,67,131,120,94,113,47,228,70,184,68,145,96,212,211,223,48,96,194,132,124,79,37,130,191,15,27,222,216,247,181,125,202,66,76,208,57,88,4,161,3,246,237,176,119,154,159,187,40,35,100,110]

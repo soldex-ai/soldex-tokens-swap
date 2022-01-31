@@ -1,0 +1,19 @@
+speqto@speqto-Latitude-3520:/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token-swap/js$ solana-keygen new --outfile my-solana-wallet/swapPayer-keypair.json
+Generating a new keypair
+
+For added security, enter a BIP39 passphrase
+
+NOTE! This passphrase improves security of the recovery seed phrase NOT the
+keypair file itself, which is stored as insecure plain text
+
+BIP39 Passphrase (empty for none): 
+
+Wrote new keypair to my-solana-wallet/swapPayer-keypair.json
+================================================================================
+pubkey: 6RRGuBASSrqZnznAVxZHM8N8HYTLzPyqziyLWgKLhi21
+================================================================================
+Save this seed phrase and your BIP39 passphrase to recover your new keypair:
+increase kingdom inmate jar dwarf volcano pass amount copper correct bonus rural
+================================================================================
+
+[221,100,128,78,226,216,48,156,151,6,64,240,165,57,250,51,199,190,159,204,206,142,144,191,6,32,23,171,229,79,79,56,80,139,210,38,69,204,141,67,227,34,7,173,121,146,191,91,105,92,66,1,46,155,233,31,193,126,40,204,198,145,193,238]

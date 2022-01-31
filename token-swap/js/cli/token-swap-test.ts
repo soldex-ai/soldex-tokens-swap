@@ -80,6 +80,8 @@ async function getConnection(): Promise<Connection> {
   if (connection) return connection;
 
   connection = new Connection(url, 'recent');
+  console.log("----------------------------url----------------------------")
+  console.log(url)
   const version = await connection.getVersion();
 
   console.log('Connection to cluster established:', url, version);

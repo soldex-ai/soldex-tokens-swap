@@ -33,6 +33,8 @@ let mintB: Token;
 let tokenAccountA: PublicKey;
 let tokenAccountB: PublicKey;
 
+let publicKey: PublicKey;
+
 // Hard-coded fee address, for testing production mode
 const SWAP_PROGRAM_OWNER_FEE_ADDRESS =
   process.env.SWAP_PROGRAM_OWNER_FEE_ADDRESS;
@@ -80,6 +82,8 @@ async function getConnection(): Promise<Connection> {
   if (connection) return connection;
 
   connection = new Connection(url, 'recent');
+  console.log("----------------------------url----------------------------")
+  console.log(url)
   const version = await connection.getVersion();
 
   console.log('Connection to cluster established:', url, version);
@@ -91,8 +95,13 @@ export async function createTokenSwap(
   curveParameters?: Numberu64,
 ): Promise<void> {
   const connection = await getConnection();
-  const payer = await newAccountWithLamports(connection, 1000000000);
+  console.log("Into Create Token Swap");
+  // const payer = await newAccountWithLamports(connection, 1000000000);
+  const payer = new Account([3,252,255,110,56,235,208,96,203,90,146,236,230,41,88,76,33,28,90,90,243,88,244,103,66,96,107,224,3,45,100,136,1,131,158,171,65,176,37,87,73,246,32,42,134,115,102,220,187,43,205,32,48,227,55,20,216,162,140,204,8,48,13,62]);
   console.log('payer.publicKey :'+payer.publicKey);
+  // console.log('payer.secretKey :'+payer.secretKey);
+  console.log('payer.publicKey :'+payer);
+
   //code to get Payer account Info
   const payerInfo = await connection.getAccountInfo(payer.publicKey, 'confirmed');
   console.log("payerInfo : ");
@@ -103,7 +112,8 @@ export async function createTokenSwap(
   console.log("payerBalance : ")
   console.log(payerBalance)
 
-  owner = await newAccountWithLamports(connection, 1000000000);
+  // owner = await newAccountWithLamports(connection, 1000000000);
+  owner = new Account([73,56,115,178,129,30,214,46,173,205,73,218,155,76,36,55,88,197,72,140,143,146,13,37,101,166,99,10,25,208,86,233,111,57,17,175,12,145,1,171,239,96,169,234,165,95,18,57,54,75,88,186,102,130,60,151,169,88,43,44,191,251,198,185]);
   console.log('owner.publicKey :'+owner.publicKey);
   
   //code to get owner account Info
@@ -115,8 +125,8 @@ export async function createTokenSwap(
   const ownerBalance = await connection.getBalance(owner.publicKey, 'confirmed');
   console.log("ownerBalance : ");
   console.log(ownerBalance);
-
   const tokenSwapAccount = new Account();
+  // const tokenSwapAccount = new Account([6,55,212,32,138,154,224,213,4,124,140,206,58,30,180,205,75,207,187,1,89,11,4,141,44,153,140,240,2,24,246,183,32,63,55,13,168,40,227,239,10,220,191,166,170,49,31,206,81,244,83,76,251,240,149,58,86,46,255,242,233,100,181,53]);
   console.log("TOKEN_SWAP_PROGRAM_ID :"+TOKEN_SWAP_PROGRAM_ID);
   console.log("[tokenSwapAccount.publicKey.toBuffer()] :"+[tokenSwapAccount.publicKey]);
   
@@ -223,17 +233,18 @@ export async function createTokenSwap(
   
   //Code to get tokenAccountA token account balance info
   const tokenAccountBBalance = await connection.getTokenAccountBalance(tokenAccountB);
-  console.log("tokenAccountBBalance address: ", tokenAccountBBalance)
+  console.log("tokenAccountBBalance address: ", tokenAccountBBalance);
 
   console.log('minting token B to swap');
   await mintB.mintTo(tokenAccountB, owner, [], currentSwapTokenB);
 
   //Code to get tokenAccountA token account balance info
   const tokenAccountBBalanceAfterMint = await connection.getTokenAccountBalance(tokenAccountB);
-  console.log("tokenAccountBBalanceAfterMint address: ", tokenAccountBBalanceAfterMint)
+  console.log("tokenAccountBBalanceAfterMint address: ", tokenAccountBBalanceAfterMint);
 
   console.log('creating token swap');
-  const swapPayer = await newAccountWithLamports(connection, 10000000000);
+  // const swapPayer = await newAccountWithLamports(connection, 10000000000);
+  const swapPayer = new Account([200,54,156,237,249,17,145,195,91,67,132,91,124,171,69,141,78,65,99,156,255,217,122,141,239,140,71,80,145,149,38,240,126,64,199,123,75,200,23,76,47,191,129,217,8,22,141,158,170,187,13,29,149,70,43,159,215,135,95,211,116,181,220,200]);
   console.log('--------------------------------swapPayer--------------------------------');
   console.log(swapPayer);
   tokenSwap = await TokenSwap.createTokenSwap(
@@ -606,7 +617,7 @@ export async function swap(): Promise<void> {
   //Code to get userAccountABalanceSwap token account balance info
   const ownerpublicKeyBalanceBeforeMintSwap = await connection.getAccountInfo(owner.publicKey);
   console.log("ownerpublicKeyBalanceBeforeMintSwap address: ", ownerpublicKeyBalanceBeforeMintSwap);
-
+  
   await mintA.mintTo(userAccountA, owner, [], SWAP_AMOUNT_IN);
 
   //Code to get userAccountABalanceSwap token account balance info
@@ -663,7 +674,7 @@ export async function swap(): Promise<void> {
   console.log("SWAP_AMOUNT_OUT address: ", SWAP_AMOUNT_OUT);
 
   console.log('Swapping');
-  await tokenSwap.swap(
+  var token_val = await tokenSwap.swap(
     userAccountA,
     tokenAccountA,
     tokenAccountB,
@@ -675,7 +686,8 @@ export async function swap(): Promise<void> {
   );
 
   await sleep(500);
-
+  console.log("----------------------Swap Hash----------------------")
+  console.log(token_val)
   //Code to get userAccountABalanceBeforeSwap token account balance info
   let userAccountABalanceAfterSwap = await connection.getTokenAccountBalance(userAccountA);
   console.log("userAccountABalanceAfterSwap address: ", userAccountABalanceAfterSwap);
@@ -686,10 +698,12 @@ export async function swap(): Promise<void> {
 
   //Code to get tokenAccountABalanceBeforeSwap token account balance info
   let tokenAccountBBalanceAfterSwap = await connection.getTokenAccountBalance(tokenAccountB);
+  console.log("tokenAccountBBalanceAfterSwap address: ", tokenAccountB.toString);
   console.log("tokenAccountBBalanceAfterSwap address: ", tokenAccountBBalanceAfterSwap);
 
   //Code to get tokenAccountABalanceBeforeSwap token account balance info
   let userAccountBBalanceAfterSwap = await connection.getTokenAccountBalance(userAccountB);
+  console.log("userAccountBBalanceAfterSwap address: ", userAccountB);
   console.log("userAccountBBalanceAfterSwap address: ", userAccountBBalanceAfterSwap);
 
   // Code to get tokenAccountABalanceBeforeSwap token account balance info

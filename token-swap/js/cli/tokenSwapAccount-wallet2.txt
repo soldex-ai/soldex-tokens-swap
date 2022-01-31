@@ -1,0 +1,19 @@
+speqto@speqto-Latitude-3520:/opt/lampp/htdocs/soldex_project/soldex-token-swap-SC/token-swap/js$ solana-keygen new --outfile my-solana-wallet/tokenSwapAccount-wallet2-keypair.json
+Generating a new keypair
+
+For added security, enter a BIP39 passphrase
+
+NOTE! This passphrase improves security of the recovery seed phrase NOT the
+keypair file itself, which is stored as insecure plain text
+
+BIP39 Passphrase (empty for none): 
+
+Wrote new keypair to my-solana-wallet/tokenSwapAccount-wallet2-keypair.json
+=========================================================================
+pubkey: 3AsxLPqPESrwoke55fdetnU5kxENWCNXfynHUJuVKQUC
+=========================================================================
+Save this seed phrase and your BIP39 passphrase to recover your new keypair:
+employ short music must town snap cloud rally shoe luxury bottom kangaroo
+=========================================================================
+
+[6,55,212,32,138,154,224,213,4,124,140,206,58,30,180,205,75,207,187,1,89,11,4,141,44,153,140,240,2,24,246,183,32,63,55,13,168,40,227,239,10,220,191,166,170,49,31,206,81,244,83,76,251,240,149,58,86,46,255,242,233,100,181,53]

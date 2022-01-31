@@ -19,11 +19,11 @@ import {
     // );
     // await createTokenSwap(CurveType.ConstantProduct);
     // console.log('CurveType.ConstantProduct :'+CurveType.ConstantProduct);
-    console.log('Run test: deposit all token types');
+    // console.log('Run test: deposit all token types');
     await depositAllTokenTypes();
-    // console.log('Run test: withdraw all token types');
-    // await withdrawAllTokenTypes();
-    // console.log('Run test: swap');
+    // // console.log('Run test: withdraw all token types');
+    // // await withdrawAllTokenTypes();
+    // // console.log('Run test: swap');
     await swap();
     // console.log('Run test: create account, approve, swap all at once');
     // await createAccountAndSwapAtomic();
