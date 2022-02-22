@@ -218,7 +218,7 @@ export async function createTokenSwap(
   // //console.log("[SOLANA_TESTNET_USDC_PUBLEY.toBuffer()] :"+[SOLANA_TESTNET_USDC_PUBKEY.publicKey]);
    console.log('mintA:'+mintA);
   
-  (async () => {
+  /*(async () => {
     // Connect to cluster
     var connection = new web3.Connection(web3.clusterApiUrl("testnet"));
     var mintA_pubkey = new web3.PublicKey(mintA);
@@ -261,18 +261,24 @@ export async function createTokenSwap(
    //console.log("SIGNATURE", signature);
 
      console.log("SUCCESS");
-   })();
+   })();*/
   // //code to get mintB Account account Info
   const mintAInfo = await connection.getAccountInfo(mintA, 'confirmed');
   console.log("mintAInfo : ");
   console.log(mintAInfo);
 
 // //code to get USDC Account account Info
+  var mintA_Token = new splToken.Token(
+    connection,
+    mintA,
+    splToken.TOKEN_PROGRAM_ID,
+    owner
+  );
 
-  const tokenAccountA = new PublicKey("6koZ2AphMphfKXwhQ7Z96VmXMdYNUMF5bneE5EqMoC1p");
+  const tokenAccountA = await mintA_Token.createAccount(authority);
    console.log("tokenAccount");
    console.log('tokenAccount :'+tokenAccountA);
-  (async () => {
+  /*(async () => {
     // Connect to cluster
     var connection = new web3.Connection(web3.clusterApiUrl("testnet"));
     // Construct wallet keypairs
@@ -295,13 +301,14 @@ export async function createTokenSwap(
     toWallet.publicKey
   )
 
-   })();
+   })();*/
    //console.log('mintA_Account :'+mintA);
   // // //Code to get tokenAccountA token account balance info
    const tokenAccountABalance = await connection.getTokenAccountBalance(tokenAccountA);
    console.log("tokenAccountABalance address: ", tokenAccountABalance)
    
    console.log('minting token A to swap');
+    await mintA_Token.mintTo(tokenAccountA, owner, [], currentSwapTokenA);
    //await mintA.mintTo(tokenAccountA, owner, [], currentSwapTokenA);
   //  console.log(' token USDC to swap');
    //await mintB.mintTo(tokenAccountB, owner, [], currentSwapTokenB);
@@ -382,7 +389,7 @@ export async function createTokenSwap(
   // //console.log("[SOLANA_TESTNET_USDC_PUBLEY.toBuffer()] :"+[SOLANA_TESTNET_USDC_PUBKEY.publicKey]);
    console.log('mintB :'+mintB);
   
-  (async () => {
+  /*(async () => {
     // Connect to cluster
     var connection = new web3.Connection(web3.clusterApiUrl("testnet"));
     var mintB_pubkey = new web3.PublicKey(mintB);
@@ -425,15 +432,21 @@ export async function createTokenSwap(
   // console.log("SIGNATURE", signature);
 
      console.log("SUCCESS");
-   })();
+   })();*/
    
 
 // //code to get USDC Account account Info
 
-   const tokenAccountB = new PublicKey("CgGci4G6d5meEJBXs358pH9AWJEvq897maGho5KJH9zd");
+  var mintB_Token = new splToken.Token(
+    connection,
+    mintB,
+    splToken.TOKEN_PROGRAM_ID,
+    owner
+  );
+  const tokenAccountB = await  mintB_Token.createAccount(authority);
    console.log("tokenAccountB ");
     console.log('tokenAccountB :'+tokenAccountB);
-  (async () => {
+  /*(async () => {
     // Connect to cluster
     var connection = new web3.Connection(web3.clusterApiUrl("testnet"));
     // Construct wallet keypairs
@@ -449,8 +462,9 @@ export async function createTokenSwap(
       fromWallet
     );
 
-   })();
+   })();*/
   // // //Code to get tokenAccountA token account balance info
+  mintB_Token.mintTo(tokenAccountB, owner, [], currentSwapUSDC)
    const mintBAccountBalance = await connection.getTokenAccountBalance(tokenAccountB);
    console.log("mintBAccountBalance address: ", mintBAccountBalance);
   
@@ -458,8 +472,8 @@ export async function createTokenSwap(
    //await mintB.mintTo(tokenAccountB, owner, [], currentSwapTokenB);
 
     console.log('creating token swap');
-    const swapPayer = await newAccountWithLamports(connection, 10000000000);
-    //  const swapPayer = new Account([200,54,156,237,249,17,145,195,91,67,132,91,124,171,69,141,78,65,99,156,255,217,122,141,239,140,71,80,145,149,38,240,126,64,199,123,75,200,23,76,47,191,129,217,8,22,141,158,170,187,13,29,149,70,43,159,215,135,95,211,116,181,220,200]);
+    // const swapPayer = await newAccountWithLamports(connection, 10000000000);
+    const swapPayer = payer;
     console.log('--------------------------------swapPayer--------------------------------');
    console.log(swapPayer);
    tokenSwap = await TokenSwap.createTokenSwap(

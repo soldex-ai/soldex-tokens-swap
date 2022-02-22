@@ -1,11 +1,11 @@
 import {
-    createAccountAndSwapAtomic,
+    // createAccountAndSwapAtomic,
     createTokenSwap,
-    swap,
-    depositAllTokenTypes,
-    withdrawAllTokenTypes,
-    depositSingleTokenTypeExactAmountIn,
-    withdrawSingleTokenTypeExactAmountOut,
+    // swap,
+    // depositAllTokenTypes,
+    // withdrawAllTokenTypes,
+    // depositSingleTokenTypeExactAmountIn,
+    // withdrawSingleTokenTypeExactAmountOut,
   } from './token-swap-script';
   import {CurveType, Numberu64} from '../dist';
   
@@ -20,11 +20,11 @@ import {
     // await createTokenSwap(CurveType.ConstantProduct);
     // console.log('CurveType.ConstantProduct :'+CurveType.ConstantProduct);
     // console.log('Run test: deposit all token types');
-    await depositAllTokenTypes();
+    // await depositAllTokenTypes();
     // // console.log('Run test: withdraw all token types');
     // // await withdrawAllTokenTypes();
     // // console.log('Run test: swap');
-    await swap();
+    // await swap();
     // console.log('Run test: create account, approve, swap all at once');
     // await createAccountAndSwapAtomic();
     // console.log('Run test: deposit one exact amount in');
