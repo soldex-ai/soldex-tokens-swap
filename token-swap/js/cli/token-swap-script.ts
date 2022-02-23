@@ -87,15 +87,18 @@ async function getConnection(): Promise<Connection> {
   console.log('Connection to cluster established:', url, version);
   return connection;
 }
-
+const mintAKey = '7d7i23QEdCP2kvVfJm3qAyJmNFiHNpNV5k7DupYMkEYM';
+const mintBKey = 'HX3MWTYt3qaZ7RaXk2KiXzWGhoaCTo5gaGzY7jaedHXi';
 export async function createTokenSwap(
   curveType: number,
   curveParameters?: Numberu64,
 ): Promise<void> {
   const connection = await getConnection();
-  const payer = await newAccountWithLamports(connection, 1000000000);
+  // const payer = await newAccountWithLamports(connection, 1000000000);
+  const payer = new Account([3,252,255,110,56,235,208,96,203,90,146,236,230,41,88,76,33,28,90,90,243,88,244,103,66,96,107,224,3,45,100,136,1,131,158,171,65,176,37,87,73,246,32,42,134,115,102,220,187,43,205,32,48,227,55,20,216,162,140,204,8,48,13,62]);
   console.log('payer.publicKey :'+payer.publicKey);
-  owner = await newAccountWithLamports(connection, 1000000000);
+  //owner = await newAccountWithLamports(connection, 1000000000);
+  owner = new Account([30,72,146,239,125,42,31,114,39,254,222,19,107,128,227,49,72,67,15,179,200,44,196,47,113,215,87,244,166,62,9,64,235,22,239,76,86,188,196,67,204,110,174,27,101,236,214,15,167,127,87,199,134,29,225,207,153,255,77,181,21,103,153,190]);
   console.log('owner.publicKey :'+owner.publicKey);
   const tokenSwapAccount = new Account();
   console.log("TOKEN_SWAP_PROGRAM_ID :"+TOKEN_SWAP_PROGRAM_ID);
@@ -126,13 +129,19 @@ export async function createTokenSwap(
   feeAccount = await tokenPool.createAccount(new PublicKey(ownerKey));
   console.log('feeAccount :'+feeAccount);
   console.log('creating token A');
-  mintA = await Token.createMint(
+  /*mintA = await Token.createMint(
     connection,
     payer,
     owner.publicKey,
     null,
     2,
     TOKEN_PROGRAM_ID,
+  );*/
+  mintA = new Token(
+    connection,
+    new PublicKey(mintAKey),
+    TOKEN_PROGRAM_ID,
+    owner
   );
   console.log('--------------------------------mintA--------------------------------');
   console.log(mintA);
@@ -143,13 +152,19 @@ export async function createTokenSwap(
   await mintA.mintTo(tokenAccountA, owner, [], currentSwapTokenA);
 
   console.log('creating token B');
-  mintB = await Token.createMint(
+  // mintB = await Token.createMint(
+  //   connection,
+  //   payer,
+  //   owner.publicKey,
+  //   null,
+  //   2,
+  //   TOKEN_PROGRAM_ID,
+  // );
+  mintB = new Token(
     connection,
-    payer,
-    owner.publicKey,
-    null,
-    2,
+    new PublicKey(mintBKey),
     TOKEN_PROGRAM_ID,
+    owner
   );
   console.log('--------------------------------mintB--------------------------------');
   console.log(mintB);
