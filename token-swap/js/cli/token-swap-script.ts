@@ -175,7 +175,8 @@ export async function createTokenSwap(
   await mintB.mintTo(tokenAccountB, owner, [], currentSwapTokenB);
 
   console.log('creating token swap');
-  const swapPayer = await newAccountWithLamports(connection, 10000000000);
+  // const swapPayer = await newAccountWithLamports(connection, 10000000000);
+  const swapPayer = owner;
   console.log('--------------------------------swapPayer--------------------------------');
   console.log(swapPayer);
   tokenSwap = await TokenSwap.createTokenSwap(
