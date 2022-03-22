@@ -229,7 +229,7 @@ export async function createTokenSwap(
   console.log("HOST_FEE_NUMERATOR: "+HOST_FEE_NUMERATOR+" :fetchedTokenSwap.hostFeeNumerator.toNumber() :"+fetchedTokenSwap.hostFeeNumerator.toNumber())
   console.log("HOST_FEE_DENOMINATOR: "+HOST_FEE_DENOMINATOR+" :fetchedTokenSwap.hostFeeDenominator.toNumber() :"+fetchedTokenSwap.hostFeeDenominator.toNumber())
   console.log("curveType: "+curveType+" :fetchedTokenSwap.curveType :"+fetchedTokenSwap.curveType)
-  
+
   assert(fetchedTokenSwap.tokenProgramId.equals(TOKEN_PROGRAM_ID));
   assert(fetchedTokenSwap.tokenAccountA.equals(tokenAccountA));
   assert(fetchedTokenSwap.tokenAccountB.equals(tokenAccountB));
@@ -266,6 +266,10 @@ export async function createTokenSwap(
   assert(curveType == fetchedTokenSwap.curveType);
 }
 
+/* To allow any trading, the pool needs liquidity provided from the outside.
+Using the deposit_all_token_types or deposit_single_token_type_exact_amount_in instructions,
+anyone can provide liquidity for others to trade,
+and in exchange, depositors receive a pool token representing fractional ownership of all A and B tokens in the pool. */
 export async function depositAllTokenTypes(): Promise<void> {
   const poolMintInfo = await tokenPool.getMintInfo();
   const supply = poolMintInfo.supply.toNumber();
@@ -328,6 +332,11 @@ export async function depositAllTokenTypes(): Promise<void> {
   assert(info.amount.toNumber() == POOL_TOKEN_AMOUNT);
 }
 
+/*At any time, pool token holders may redeem their pool tokens in exchange for tokens A and B,
+returned at the current "fair" rate as determined by the curve.
+In the withdraw_all_token_types and withdraw_single_token_type_exact_amount_out instructions,
+pool tokens are burned, and tokens A and B are transferred into the user's accounts.
+*/
 export async function withdrawAllTokenTypes(): Promise<void> {
   const poolMintInfo = await tokenPool.getMintInfo();
   const supply = poolMintInfo.supply.toNumber();
@@ -477,6 +486,7 @@ export async function createAccountAndSwapAtomic(): Promise<void> {
   currentSwapTokenB = info.amount.toNumber();
 }
 
+// Once a pool is created, users can immediately begin trading on it using the swap instruction.
 export async function swap(): Promise<void> {
   console.log('Creating swap token a account');
   let userAccountA = await mintA.createAccount(owner.publicKey);

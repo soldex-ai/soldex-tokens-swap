@@ -461,7 +461,6 @@ export async function createAccountAndSwapAtomic(): Promise<void> {
   currentSwapTokenB = info.amount.toNumber();
 }
 
-
 export async function swap(): Promise<void> {
   console.log('Creating swap token a account');
   let userAccountA = await mintA.createAccount(owner.publicKey);
