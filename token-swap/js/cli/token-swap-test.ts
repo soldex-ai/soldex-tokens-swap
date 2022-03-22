@@ -213,7 +213,7 @@ export async function createTokenSwap(
   console.log("HOST_FEE_NUMERATOR: "+HOST_FEE_NUMERATOR+" :fetchedTokenSwap.hostFeeNumerator.toNumber() :"+fetchedTokenSwap.hostFeeNumerator.toNumber())
   console.log("HOST_FEE_DENOMINATOR: "+HOST_FEE_DENOMINATOR+" :fetchedTokenSwap.hostFeeDenominator.toNumber() :"+fetchedTokenSwap.hostFeeDenominator.toNumber())
   console.log("curveType: "+curveType+" :fetchedTokenSwap.curveType :"+fetchedTokenSwap.curveType)
-  
+
   assert(fetchedTokenSwap.tokenProgramId.equals(TOKEN_PROGRAM_ID));
   assert(fetchedTokenSwap.tokenAccountA.equals(tokenAccountA));
   assert(fetchedTokenSwap.tokenAccountB.equals(tokenAccountB));
@@ -460,6 +460,7 @@ export async function createAccountAndSwapAtomic(): Promise<void> {
   info = await mintB.getAccountInfo(tokenAccountB);
   currentSwapTokenB = info.amount.toNumber();
 }
+
 
 export async function swap(): Promise<void> {
   console.log('Creating swap token a account');

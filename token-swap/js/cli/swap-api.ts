@@ -74,25 +74,39 @@ export interface TokenProvideInfo{
 
 // }
 
+/*
+   * Withdraw tokens from the pool
+   *
+   * @param connection The connection to use
+   * @param swapPayer The payer for creating the pool
+   * @param baseInfo TokenA's info
+   * @param quoteInfo TokenB's info
+   * @param lpMintDecimals Decimals of lp mint
+   * @param fees Fee Parameter info
+   * @param feeOwner Owner of the fee account
+   * @param curveType Curve type of the pool
+*/
 export async function createPoolWithKeypair(
   connection: Connection,
   swapPayer: Account,
   baseInfo: TokenProvideInfo,
   quoteInfo: TokenProvideInfo,
-
   lpMintDecimals: number,
-
   fees: FeeParams,
   feeOwner: PublicKey,
-
   curveType: number,
   curveParameters?: Numberu64,
 ) {
+
+  //Empty pool state account
   const tokenSwapAccount = new Account();
+
+  //pool authority
   const [authority, bumpSeed] = await PublicKey.findProgramAddress(
     [tokenSwapAccount.publicKey.toBuffer()],
     TOKEN_SWAP_PROGRAM_ID,
   );
+
   const baseToken = new Token(
     connection,
     baseInfo.mint,
@@ -114,7 +128,6 @@ export async function createPoolWithKeypair(
 
   let transaction = new Transaction();
 
-
   const tokenAccountA = await Token.getAssociatedTokenAddress(
     ASSOCIATED_TOKEN_PROGRAM_ID,
     TOKEN_PROGRAM_ID,
@@ -122,6 +135,7 @@ export async function createPoolWithKeypair(
     authority,
     true
   );
+
   const tokenAccountB = await Token.getAssociatedTokenAddress(
     ASSOCIATED_TOKEN_PROGRAM_ID,
     TOKEN_PROGRAM_ID,
@@ -162,6 +176,7 @@ export async function createPoolWithKeypair(
   await baseToken.transfer(baseInfo.account, tokenAccountA, swapPayer, [], baseInfo.amount);
   await quoteToken.transfer(quoteInfo.account, tokenAccountB, swapPayer, [], quoteInfo.amount);
 
+  //pool token mint
   const tokenPool = await Token.createMint(
     connection,
     swapPayer,
@@ -171,7 +186,10 @@ export async function createPoolWithKeypair(
     TOKEN_PROGRAM_ID,
   );
 
+  //pool token recipient account
   const tokenAccountPool = await tokenPool.createAccount(swapPayer.publicKey);
+
+  //pool token fee account
   const feeAccount = await tokenPool.createAccount(feeOwner);
 
   console.log('calling createTokenSwap');
