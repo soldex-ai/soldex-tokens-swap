@@ -5,6 +5,8 @@ to `TOKEN_SWAP_PROGRAM_ID :35J9s72PQRsHKf7bnsBfQnHYxkchLAaQmN9Bc1x7vS7w` on all 
 
 Full documentation is available at https://spl.solana.com/token-swap
 
+Smart Contract is in the `./program` directory.
+
 JavaScript bindings are available in the `./js` directory.
 
 ## Building
