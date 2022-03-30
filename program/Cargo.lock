@@ -1641,6 +1641,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "soldex-token-swap"
+version = "0.1.0"
+dependencies = [
+ "arbitrary",
+ "arrayref",
+ "enum_dispatch",
+ "num-derive",
+ "num-traits",
+ "proptest",
+ "roots",
+ "sim",
+ "solana-program",
+ "solana-sdk",
+ "spl-math",
+ "spl-token",
+ "thiserror",
+]
+
+[[package]]
 name = "spl-math"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1666,25 +1685,6 @@ dependencies = [
  "num-traits",
  "num_enum",
  "solana-program",
- "thiserror",
-]
-
-[[package]]
-name = "spl-token-swap"
-version = "2.1.0"
-dependencies = [
- "arbitrary",
- "arrayref",
- "enum_dispatch",
- "num-derive",
- "num-traits",
- "proptest",
- "roots",
- "sim",
- "solana-program",
- "solana-sdk",
- "spl-math",
- "spl-token",
  "thiserror",
 ]
 
