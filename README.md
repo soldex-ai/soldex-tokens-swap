@@ -1,154 +1,112 @@
-[![Build status][travis-image]][travis-url]
+# Token Swap Program
 
-[travis-image]:
-https://travis-ci.org/solana-labs/solana-program-library.svg?branch=master
-[travis-url]: https://travis-ci.org/solana-labs/solana-program-library
+A Uniswap-like exchange for the Token program on the Solana blockchain, deployed
+to `TOKEN_SWAP_PROGRAM_ID :35J9s72PQRsHKf7bnsBfQnHYxkchLAaQmN9Bc1x7vS7w` on all networks.
 
-# Solana Program Library
+Full documentation is available at https://spl.solana.com/token-swap
 
-The Solana Program Library (SPL) is a collection of on-chain programs targeting
-the [Sealevel parallel
-runtime](https://medium.com/solana-labs/sealevel-parallel-processing-thousands-of-smart-contracts-d814b378192).
-These programs are tested against Solana's implementation of Sealevel,
-solana-runtime, and deployed to its mainnet.  As others implement Sealevel, we
-will graciously accept patches to ensure the programs here are portable across
-all implementations.
+JavaScript bindings are available in the `./js` directory.
 
-Full documentation is available at https://spl.solana.com
+## Building
 
-## Development
+To build a development version of the Token Swap program, you can use the normal
+build command for Solana programs:
 
-### Environment Setup
-
-1. Install the latest Rust stable from https://rustup.rs/
-2. Install Solana v1.6.1 or later from https://docs.solana.com/cli/install-solana-cli-tools
-3. Install the `libudev` development package for your distribution (`libudev-dev` on Debian-derived distros, `libudev-devel` on Redhat-derived).
-
-### Build
-
-The normal cargo build is available for building programs against your host machine:
+```sh
+cargo build-bpf
 ```
-$ cargo build
-```
+For production versions, the Token Swap Program contains a `production` feature
+to fix constraints on fees and fee account owner. A developer can
+deploy the program, allow others to create pools, and earn a "protocol fee" on
+all activity.
+## Build the on-chain program
 
-To build a specific program, such as SPL Token, for the Solana BPF target:
-```
-$ cd token/program
-$ cargo build-bpf
-```
+$ npm run build:program
 
-### Test
 
-Unit tests contained within all projects can be run with:
-```bash
-$ cargo test      # <-- runs host-based tests
-$ cargo test-bpf  # <-- runs BPF program tests
+## Deploy the smart contract
+
+solana program deploy <PATH of FILE>/spl_token_swap.so
+
+Since Solana programs cannot contain any modifiable state, we must hard-code
+all constraints into the program.  `SwapConstraints` in `program/src/constraints.rs`
+contains all hard-coded fields for fees.  Additionally the
+`SWAP_PROGRAM_OWNER_FEE_ADDRESS` environment variable specifies the public key
+that must own all fee accounts.
+
+You can build the production version of Token Swap running on devnet, testnet, and
+mainnet-beta using the following command:
+
+```sh
+SWAP_PROGRAM_OWNER_FEE_ADDRESS=HfoTxFR1Tm6kGmWgYWD6J7YHVy1UwqSULUGVLXkJqaKN cargo build-bpf --features=production
 ```
 
-To run a specific program's tests, such as SPL Token:
-```
-$ cd token/program
-$ cargo test      # <-- runs host-based tests
-$ cargo test-bpf  # <-- runs BPF program tests
-```
+## The client connects to a local Solana cluster by default.
 
-Integration testing may be performed via the per-project .js bindings.  See the
-[token program's js project](token/js) for an example.
+To enable on-chain program logs, set the RUST_LOG environment variable:
 
-### Clippy
-```bash
-$ cargo clippy
-```
+$ export RUST_LOG=solana_runtime::native_loader=trace,solana_runtime::system_instruction_processor=trace,solana_runtime::bank=debug,solana_bpf_loader=debug,solana_rbpf=debug
 
-### Coverage
-```bash
-$ ./coverage.sh  # Please help! Coverage build currently fails on MacOS due to an XCode `grcov` mismatch...
-```
+## set cluster 
 
-#### MacOS
+npm run cluster:devnet / npm run cluster:localnet / npm run cluster:testnet(command to set cluster network)
 
-You may need to pin your grcov version, and then rustup with the apple-darwin nightly toolchain:
-```bash
-$ cargo install grcov --version 0.6.1
-$ rustup toolchain install nightly-x86_64-apple-darwin
+## Run the test client
+$ npm run start
+
+### Unit tests
+
+Run unit tests from `./program/` using:
+
+```sh
+cargo test
 ```
 
+### Fuzz tests
 
-## Release Process
-SPL programs are currently tagged and released manually. Each program is
-versioned independently of the others, with all new development occurring on
-master. Once a program is tested and deemed ready for release:
+Using the Rust version of `honggfuzz`, we "fuzz" the Token Swap program every night.
+Install `honggfuzz` with:
 
-### Bump Version
-
-  * Increment the version number in the program's Cargo.toml
-  * Generate a new program ID and replace in `<program>/program-id.md` and `<program>/src/lib.rs`
-  * Run `cargo build-bpf <program>` to update relevant C bindings. (Note the
-    location of the generated `spl_<program>.so` for attaching to the Github
-    release.)
-  * Open a PR with these version changes and merge after passing CI.
-
-### Create Github tag
-
-Program tags are of the form `<program>-vX.Y.Z`.
-Create the new tag at the version-bump commit and push to the
-solana-program-library repository, eg:
-
-```
-$ git tag token-v1.0.0 b24bfe7
-$ git push upstream --tags
+```sh
+cargo install honggfuzz
 ```
 
-### Publish Github release
+From there, run fuzzing from `./program/fuzz` with:
 
-  * Go to [GitHub Releases UI](https://github.com/solana-labs/solana-program-library/releases)
-  * Click "Draft new release", and enter the new tag in the "Tag version" box.
-  * Title the release "SPL <Program> vX.Y.Z", complete the description, and attach the `spl_<program>.so` binary
-  * Click "Publish release"
+```sh
+cargo hfuzz run token-swap-instructions
+```
 
-### Publish to Crates.io
+If the program crashes or errors, `honggfuzz` dumps a `.fuzz` file in the workspace,
+so you can debug the failing input using:
 
-Navigate to the program directory and run `cargo package`
-to test the build. Then run `cargo publish`.
- 
- # Disclaimer
+```sh
+cargo hfuzz run-debug token-swap-instructions hfuzz_workspace/token-swap-instructions/*fuzz
+```
 
-All claims, content, designs, algorithms, estimates, roadmaps,
-specifications, and performance measurements described in this project
-are done with the Solana Foundation's ("SF") best efforts. It is up to
-the reader to check and validate their accuracy and truthfulness.
-Furthermore nothing in this project constitutes a solicitation for
-investment.
+This command attaches a debugger to the test, allowing you to easily see the
+exact problem.
 
-Any content produced by SF or developer resources that SF provides, are
-for educational and inspiration purposes only. SF does not encourage,
-induce or sanction the deployment, integration or use of any such
-applications (including the code comprising the Solana blockchain
-protocol) in violation of applicable laws or regulations and hereby
-prohibits any such deployment, integration or use. This includes use of
-any such applications by the reader (a) in violation of export control
-or sanctions laws of the United States or any other applicable
-jurisdiction, (b) if the reader is located in or ordinarily resident in
-a country or territory subject to comprehensive sanctions administered
-by the U.S. Office of Foreign Assets Control (OFAC), or (c) if the
-reader is or is working on behalf of a Specially Designated National
-(SDN) or a person subject to similar blocking or denied party
-prohibitions.
+### Integration tests
 
-The reader should be aware that U.S. export control and sanctions laws
-prohibit U.S. persons (and other persons that are subject to such laws)
-from transacting with persons in certain countries and territories or
-that are on the SDN list. As a project based primarily on open-source
-software, it is possible that such sanctioned persons may nevertheless
-bypass prohibitions, obtain the code comprising the Solana blockchain
-protocol (or other project code or applications) and deploy, integrate,
-or otherwise use it. Accordingly, there is a risk to individuals that
-other persons using the Solana blockchain protocol may be sanctioned
-persons and that transactions with such persons would be a violation of
-U.S. export controls and sanctions law. This risk applies to
-individuals, organizations, and other ecosystem participants that
-deploy, integrate, or use the Solana blockchain protocol code directly
-(e.g., as a node operator), and individuals that transact on the Solana
-blockchain through light clients, third party interfaces, and/or wallet
-software.
+You can test the JavaScript bindings and on-chain interactions using
+`solana-test-validator`, included in the Solana Tool Suite.  See the
+[CLI installation instructions](https://docs.solana.com/cli/install-solana-cli-tools).
 
+From `./js`, install the required modules:
+
+```sh
+npm i
+```
+
+Then run all tests:
+
+```sh
+npm run start-with-test-validator
+```
+
+If you are testing a production build, use:
+
+```sh
+SWAP_PROGRAM_OWNER_FEE_ADDRESS="7uT58uvDWBSpJMRV5QwP5HiBGhFSjRkZWDza4EWiEQUM" npm run start-with-test-validator
+```
