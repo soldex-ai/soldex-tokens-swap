@@ -112,3 +112,8 @@ If you are testing a production build, use:
 ```sh
 SWAP_PROGRAM_OWNER_FEE_ADDRESS="7uT58uvDWBSpJMRV5QwP5HiBGhFSjRkZWDza4EWiEQUM" npm run start-with-test-validator
 ```
+### Pool Create
+
+```sh
+npm run create-pool
+```

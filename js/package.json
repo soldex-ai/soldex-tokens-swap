@@ -33,6 +33,7 @@
     "test": "ts-node cli/script-main.ts",
     "start": "ts-node cli/main.ts",
     "api-test": "ts-node cli/swap-api-test.ts",
+    "create-pool": "ts-node cli/create-pool.ts",
     "start-with-test-validator": "start-server-and-test 'solana-test-validator --bpf-program SwaPpA9LAaLfeLi3a68M4DjnLqgtticKg6CnyNwgAC8 ../../target/deploy/spl_token_swap.so --reset --quiet' http://localhost:8899/health start",
     "lint": "npm run pretty && eslint .",
     "lint:fix": "npm run pretty:fix && eslint . --fix",
@@ -49,9 +50,9 @@
   },
   "keywords": [],
   "dependencies": {
+    "@solana/buffer-layout": "^3.0.0",
     "@solana/web3.js": "^1.10.0",
     "bn.js": "^5.1.3",
-    "@solana/buffer-layout": "^3.0.0",
     "dotenv": "10.0.0",
     "json-to-pretty-yaml": "^1.2.2",
     "mkdirp": "1.0.4"

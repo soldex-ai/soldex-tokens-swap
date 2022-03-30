@@ -31,48 +31,6 @@ export interface TokenProvideInfo{
   amount: number,
   account: PublicKey,
 }
-// export async function getFilteredTokenAccountsByOwner(
-//   connection: Connection,
-//   programId: PublicKey,
-//   mint: PublicKey
-// ): Promise<{ context: {}; value: [] }> {
-//   // @ts-ignore
-//   const resp = await connection._rpcRequest('getTokenAccountsByOwner', [
-//     programId.toBase58(),
-//     {
-//       mint: mint.toBase58()
-//     },
-//     {
-//       encoding: 'jsonParsed'
-//     }
-//   ])
-//   if (resp.error) {
-//     throw new Error(resp.error.message)
-//   }
-//   return resp.result
-// }
-// export async function getOneFilteredTokenAccountsByOwner(  connection: Connection,
-//   owner: PublicKey,
-//   mint: PublicKey
-// ): Promise<string|null> {
-//   try{
-//     const tokenAccountList1 = await getFilteredTokenAccountsByOwner(connection, owner, mint)
-//     const tokenAccountList: any = tokenAccountList1.value.map((item: any) => {
-//         return item.pubkey
-//     })
-//     let tokenAccount
-//     for (const item of tokenAccountList) {
-//       if (item !== null) {
-//         tokenAccount = item
-//       }
-//     }
-//     return tokenAccount
-//   }
-//   catch{
-//     return null
-//   }
-
-// }
 
 /*
    * Withdraw tokens from the pool
