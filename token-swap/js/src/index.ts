@@ -16,7 +16,8 @@ import {sendAndConfirmTransaction} from './util/send-and-confirm-transaction';
 import {loadAccount} from './util/account';
 
 export const TOKEN_SWAP_PROGRAM_ID: PublicKey = new PublicKey(
-  'Dx5nk4Zq1Kib9ahG5oE3LuU6rfjgubggFRzjZDj83Nzv',
+  // '8pfT6LcULTtmabxD9truRxLKaWsMNXPBwePK8xiTVVAA',
+  '3a8zHAZmmBXqP3CH5yWw8CuYwmvTktbSZUGjqVg8kNSQ'
 );
 
 /**
@@ -78,9 +79,9 @@ export const TokenSwapLayout = BufferLayout.struct([
 ]);
 
 export const CurveType = Object.freeze({
-  ConstantProduct: 0, // Constant product curve, Uniswap-style
+  ConstantProduct: 0, // Constant product curve, Uniswap-style, A_total * B_total = invariant
   ConstantPrice: 1, // Constant price curve, always X amount of A token for 1 B token, where X is defined at init
-  Offset: 3, // Offset curve, like Uniswap, but with an additional offset on the token B side
+  Offset: 3, // Offset curve, like Uniswap, but with an additional offset on the token B side, (A_total) * (B_total + B_offset) = invariant
 });
 
 /**

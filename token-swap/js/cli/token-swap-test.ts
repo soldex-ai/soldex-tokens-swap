@@ -80,6 +80,8 @@ async function getConnection(): Promise<Connection> {
   if (connection) return connection;
 
   connection = new Connection(url, 'recent');
+  console.log("----------------------------url----------------------------")
+  console.log(url)
   const version = await connection.getVersion();
 
   console.log('Connection to cluster established:', url, version);
@@ -211,7 +213,7 @@ export async function createTokenSwap(
   console.log("HOST_FEE_NUMERATOR: "+HOST_FEE_NUMERATOR+" :fetchedTokenSwap.hostFeeNumerator.toNumber() :"+fetchedTokenSwap.hostFeeNumerator.toNumber())
   console.log("HOST_FEE_DENOMINATOR: "+HOST_FEE_DENOMINATOR+" :fetchedTokenSwap.hostFeeDenominator.toNumber() :"+fetchedTokenSwap.hostFeeDenominator.toNumber())
   console.log("curveType: "+curveType+" :fetchedTokenSwap.curveType :"+fetchedTokenSwap.curveType)
-  
+
   assert(fetchedTokenSwap.tokenProgramId.equals(TOKEN_PROGRAM_ID));
   assert(fetchedTokenSwap.tokenAccountA.equals(tokenAccountA));
   assert(fetchedTokenSwap.tokenAccountB.equals(tokenAccountB));

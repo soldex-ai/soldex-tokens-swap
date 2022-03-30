@@ -49,6 +49,12 @@ $ npm run build:program
 $ npm run start
 ```
 
+### Run the test client with Hardcoded Wallet Account
+
+```sh
+$ npm run test
+```
+
 ## Pointing to a public Solana cluster
 
 Solana maintains three public clusters:
