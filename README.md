@@ -114,6 +114,9 @@ SWAP_PROGRAM_OWNER_FEE_ADDRESS="7uT58uvDWBSpJMRV5QwP5HiBGhFSjRkZWDza4EWiEQUM" np
 ```
 ### Pool Create
 
+Please specify the pool infos in ./js/create-pool.ts#L17
+
 ```sh
+npm run cluster:devnet
 npm run create-pool
 ```

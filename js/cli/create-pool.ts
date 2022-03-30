@@ -14,7 +14,7 @@ const OWNER_WITHDRAW_FEE_DENOMINATOR = 6;
 const HOST_FEE_NUMERATOR = 20;
 const HOST_FEE_DENOMINATOR = 100;
 
-const walletAddress = '/home/hitman/.config/solana/id.json';
+const walletFile = '/home/hitman/.config/solana/id.json';
 const feeOwnerKey = new PublicKey('Gph6NUYm5JzvxyqEQz2vKpgNsLfidvkzctRRRBoc1VZX');
 
 const baseMintKey = new PublicKey('D9dKAC62v6PFfcibVkWhxoHtgqJ43hqY2xGnstJWHGke');
@@ -49,7 +49,7 @@ async function createTokenSwap() {
     const payer = new Account(
         Buffer.from(
           JSON.parse(
-            require("fs").readFileSync(walletAddress, {
+            require("fs").readFileSync(walletFile, {
               encoding: "utf-8",
             })
           )
