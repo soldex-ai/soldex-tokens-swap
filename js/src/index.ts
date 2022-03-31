@@ -10,15 +10,13 @@ import {
   Transaction,
   TransactionInstruction,
 } from '@solana/web3.js';
+require('dotenv').config();
 
 import * as Layout from './layout';
 import {sendAndConfirmTransaction} from './util/send-and-confirm-transaction';
 import {loadAccount} from './util/account';
 
-export const TOKEN_SWAP_PROGRAM_ID: PublicKey = new PublicKey(
-  // '8pfT6LcULTtmabxD9truRxLKaWsMNXPBwePK8xiTVVAA',
-  '3a8zHAZmmBXqP3CH5yWw8CuYwmvTktbSZUGjqVg8kNSQ'
-);
+export const TOKEN_SWAP_PROGRAM_ID: PublicKey = new PublicKey(process.env.TOKEN_SWAP_PROGRAM_ID as string);
 
 /**
  * Some amount of tokens

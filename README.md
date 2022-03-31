@@ -15,6 +15,7 @@ To build a development version of the Token Swap program, you can use the normal
 build command for Solana programs:
 
 ```sh
+cd program
 cargo build-bpf
 ```
 For production versions, the Token Swap Program contains a `production` feature
@@ -23,12 +24,15 @@ deploy the program, allow others to create pools, and earn a "protocol fee" on
 all activity.
 ## Build the on-chain program
 
+$ cd ../js
 $ npm run build:program
 
 
 ## Deploy the smart contract
 
-solana program deploy <PATH of FILE>/spl_token_swap.so
+Need to have at least 2 SOL.
+
+$ solana program depoy <PATH of FILE>/spl_token_swap.so
 
 Since Solana programs cannot contain any modifiable state, we must hard-code
 all constraints into the program.  `SwapConstraints` in `program/src/constraints.rs`
@@ -114,9 +118,29 @@ SWAP_PROGRAM_OWNER_FEE_ADDRESS="7uT58uvDWBSpJMRV5QwP5HiBGhFSjRkZWDza4EWiEQUM" np
 ```
 ### Pool Create
 
-Please specify the pool infos in ./js/create-pool.ts#L17
+Please specify .env file before creating a pool
+
+For Devnet specify cluster-devnet.env file and run
 
 ```sh
 npm run cluster:devnet
+```
+
+For Testnet specify cluster-testnet.env file and run
+
+```sh
+npm run cluster:testnet
+```
+
+For Mainnet specify cluster-mainnet-beta.env file and run
+
+```sh
+npm run cluster:mainnet-beta
+```
+
+Create a pool
+
+```sh
+npm install
 npm run create-pool
 ```

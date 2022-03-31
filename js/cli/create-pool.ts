@@ -14,16 +14,16 @@ const OWNER_WITHDRAW_FEE_DENOMINATOR = 6;
 const HOST_FEE_NUMERATOR = 20;
 const HOST_FEE_DENOMINATOR = 100;
 
-const walletFile = '/home/hitman/.config/solana/id.json';
-const feeOwnerKey = new PublicKey('Gph6NUYm5JzvxyqEQz2vKpgNsLfidvkzctRRRBoc1VZX');
+const walletFile: string = process.env.WALLET_FILE as string;
+const feeOwnerKey = new PublicKey(process.env.FEE_OWNER_KEY || '');
 
-const baseMintKey = new PublicKey('D9dKAC62v6PFfcibVkWhxoHtgqJ43hqY2xGnstJWHGke');
-const baseAmount = '1000';
+const baseMintKey = new PublicKey(process.env.BASE_MINT_TOKEN || '');
+const baseAmount: string = process.env.BASE_AMOUNT as string;
 
-const quoteMintKey = new PublicKey('GAVDgd1YrnxDUcqCdzEBhWvXB1gUqg9kcrj7V7ChhYr6');
-const quoteAmount = '100';
+const quoteMintKey = new PublicKey(process.env.QUOTE_MINT_TOKEN || '');
+const quoteAmount: string = process.env.QUOTE_AMOUNT as string;
 
-const lpMintDecimals = 9;
+const lpMintDecimals: number = process.env.LP_MINT_DECIMALS as unknown as number;
 
 export async function findAssociatedTokenAddress(walletAddress: PublicKey, tokenMintAddress: PublicKey) {
     const [ publicKey ] = await PublicKey.findProgramAddress(
