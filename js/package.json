@@ -40,7 +40,7 @@
     "generate:flow": "flowgen dist/index.d.ts -o dist/module.flow.js",
     "lint:watch": "watch 'npm run lint:fix' . --wait=1",
     "build:program": "cargo build-bpf --manifest-path ../program/Cargo.toml",
-    "deploy:program": "solana program deploy ../program/target/deploy/soldex_swap.so",
+    "deploy:program": "solana program deploy ../program/target/deploy/soldex_token_swap.so",
     "cluster:localnet": "rm -f .env",
     "cluster:devnet": "cp cluster-devnet.env .env",
     "cluster:testnet": "cp cluster-testnet.env .env",
