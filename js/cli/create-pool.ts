@@ -5,12 +5,21 @@ import { url } from "../src/util/url";
 import { createPoolWithKeypair, TokenProvideInfo, FeeParams, getPools } from "./swap-api";
 
 // Pool fees
-const TRADING_FEE_NUMERATOR = 25;
+// const TRADING_FEE_NUMERATOR = 25;
+// const TRADING_FEE_DENOMINATOR = 10000;
+// const OWNER_TRADING_FEE_NUMERATOR = 5;
+// const OWNER_TRADING_FEE_DENOMINATOR = 10000;
+// const OWNER_WITHDRAW_FEE_NUMERATOR = 1;
+// const OWNER_WITHDRAW_FEE_DENOMINATOR = 6;
+// const HOST_FEE_NUMERATOR = 20;
+// const HOST_FEE_DENOMINATOR = 100;
+//
+const TRADING_FEE_NUMERATOR = 0;
 const TRADING_FEE_DENOMINATOR = 10000;
 const OWNER_TRADING_FEE_NUMERATOR = 5;
 const OWNER_TRADING_FEE_DENOMINATOR = 10000;
-const OWNER_WITHDRAW_FEE_NUMERATOR = 1;
-const OWNER_WITHDRAW_FEE_DENOMINATOR = 6;
+const OWNER_WITHDRAW_FEE_NUMERATOR = 0;
+const OWNER_WITHDRAW_FEE_DENOMINATOR = 0;
 const HOST_FEE_NUMERATOR = 20;
 const HOST_FEE_DENOMINATOR = 100;
 
@@ -30,6 +39,7 @@ export async function findAssociatedTokenAddress(walletAddress: PublicKey, token
         [walletAddress.toBuffer(), TOKEN_PROGRAM_ID.toBuffer(), tokenMintAddress.toBuffer()],
         ASSOCIATED_TOKEN_PROGRAM_ID
     )
+
     return publicKey
 }
 async function getMintDecimals(connection: Connection, mintKey: PublicKey): Promise<number> {
@@ -41,9 +51,9 @@ async function getMintDecimals(connection: Connection, mintKey: PublicKey): Prom
     }
 }
 async function createTokenSwap() {
-    
+
     console.log('Creating pools using solana config');
-    
+
     const connection = await getConnection();
 
     const payer = new Account(
