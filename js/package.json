@@ -44,7 +44,8 @@
     "cluster:localnet": "rm -f .env",
     "cluster:devnet": "cp cluster-devnet.env .env",
     "cluster:testnet": "cp cluster-testnet.env .env",
-    "cluster:mainnet-beta": "cp cluster-mainnet-beta.env .env",
+    "cluster:mainnet-beta-SOL": "cp cluster-mainnet-beta-SOL.env .env",
+    "cluster:mainnet-beta-USDC": "cp cluster-mainnet-beta-USDC.env .env",
     "pretty": "prettier --check '{,???/**/}*.ts'",
     "pretty:fix": "prettier --write '{,???/**/}*.ts'"
   },
