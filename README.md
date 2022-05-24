@@ -42,7 +42,9 @@ for i in {1..25}; do solana airdrop 1; sleep 1; done
 ```
 
 ```sh
-cd js; npm install; cd -
+cd js; 
+npm install; 
+cd -
 ```
 
 
@@ -55,7 +57,9 @@ JavaScript bindings are available in the `./js` directory.
 ## Build
 
 ```sh
-cd js; npm run build:program; cd -
+cd js; 
+npm run build:program; 
+cd -
 ```
 
 ## Deploy the smart contract
@@ -63,7 +67,9 @@ cd js; npm run build:program; cd -
 Need to have at least 5 SOL.
 
 ```sh
-cd js; npm run deploy:program; cd -
+cd js; 
+npm run deploy:program; 
+cd -
 ```
 
 ## Create pools
@@ -86,8 +92,8 @@ spl-token wrap 25
 Create `js/.env` by running the following command
 
 ```sh
-cd js
-npm run cluster:devnet
+cd js;
+npm run cluster:devnet;
 cd -
 ```
 
@@ -102,7 +108,9 @@ cd -
 
 Fullfill js/.env and run:
 ```sh
-cd js; npm run create-pool; cd -
+cd js; 
+npm run create-pool; 
+cd -
 ```
 
 # MAINNET
@@ -125,30 +133,34 @@ Since beginning Soldex have 2 pools: SOLX/SOL, SOLX/USDC
 
 ### Create .env file from *cluster-mainnet-beta-SOL.env*
 ```sh
-cd js
-npm run cluster:mainnet-beta-SOL
+cd js;
+npm run cluster:mainnet-beta-SOL;
 cd -
 ```
 
 Once .env file is created correctly run the command to create a pool. Make sure you have the needed number of coins on your local address that would be added to the pool as initiated liquidity.
 
 ```sh
-cd js; npm run create-pool; cd -
+cd js; 
+npm run create-pool; 
+cd -
 ```
 
 ## Create SOLX/USDC pool:
 
 ### Create .env file from *cluster-mainnet-beta-USDC.env*
 ```sh
-cd js
-npm run cluster:mainnet-beta-USDC
+cd js;
+npm run cluster:mainnet-beta-USDC;
 cd -
 ```
 
 Once new .env file is created correctly run the command to create a pool. Make sure you have the needed number of coins on your local address that would be added to the pool as initiated liquidity.
 
 ```sh
-cd js; npm run create-pool; cd -
+cd js; 
+npm run create-pool; 
+cd -
 ```
 
 # Tests and local cluster
