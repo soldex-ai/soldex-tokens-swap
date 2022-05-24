@@ -60,7 +60,7 @@ cd js; npm run build:program; cd -
 
 ## Deploy the smart contract
 
-Need to have at least 2 SOL.
+Need to have at least 5 SOL.
 
 ```sh
 cd js; npm run deploy:program; cd -
@@ -72,6 +72,7 @@ To get wallet address run
 solana address
 ```
 
+## Create pools (devnet)
 Provide Roman address and ask to send you coins
 To confirm you have enough tokens run
 ```sh
@@ -85,25 +86,66 @@ spl-token wrap 25
 Create `js/.env` by running the following command
 
 ```sh
-cd js
-npm run cluster:devnet
-cd -
+cd js; npm run cluster:devnet; cd -
 ```
 
-Token address mapping:
+### Devnet token address mapping:
 - **SOLX**: 3Wm65cRmFAbiC52YXjw1dZkJLsYA75kvNFBdaZVjVQwD
 - **USDC**: CB74zeEZk138FikM4W7b71eshsFttLq3LRFWqpAwXFXi
 - **USDT**: CWgY911b1UszYmKiGYAoEbWrTNNgY1KuybJufzhsTxKx
 - 
 - **SOL(WRAP)**: So11111111111111111111111111111111111111112
 
+### !!! IMPORTANT: make sure you prepared .env before every pool creation
+
 Fullfill js/.env and run:
 ```sh
 cd js; npm run create-pool; cd -
 ```
 
-!!! IMPORTANT: use should change .env before every pool creation
+# MAINNET
 
+Since beginning Soldex have 2 pools: SOLX/SOL, SOLX/USDC
+
+### Mainnet token address mapping:
+- **SOLX**: CH74tuRLTYcxG7qNJCsV9rghfLXJCQJbsu7i52a8F1Gn
+- **USDC**: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
+-
+- **SOL(WRAP)**: So11111111111111111111111111111111111111112
+
+### Set TOKEN_SWAP_PROGRAM_ID in and make sure your .env file is prepaed to create a pool:
+
+*cluster-mainnet-beta-SOL.env*
+
+*cluster-mainnet-beta-USDC.env*
+
+## Create SOLX/SOL pool:
+
+### Create .env file from *cluster-mainnet-beta-SOL.env*
+```sh
+cd js; npm run cluster:mainnet-beta-SOL; cd -
+```
+
+Once .env file is created correctly run the command to create a pool. Make sure you have the needed number of coins on your local address that would be added to the pool as initiated liquidity.
+
+```sh
+cd js; npm run create-pool; cd -
+```
+
+## Create SOLX/USDC pool:
+
+### Create .env file from *cluster-mainnet-beta-USDC.env*
+```sh
+cd js; npm run cluster:mainnet-beta-USDC; cd -
+```
+
+Once new .env file is created correctly run the command to create a pool. Make sure you have the needed number of coins on your local address that would be added to the pool as initiated liquidity.
+
+```sh
+cd js; npm run create-pool; cd -
+```
+
+# Tests and local cluster
 ## The client connects to a local Solana cluster by default.
 
 To enable on-chain program logs, set the RUST_LOG environment variable:
