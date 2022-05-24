@@ -1,17 +1,17 @@
-import { ASSOCIATED_TOKEN_PROGRAM_ID, Token, TOKEN_PROGRAM_ID } from "@solana/spl-token";
-import { Account, Connection, Keypair, PublicKey } from "@solana/web3.js";
+import { ASSOCIATED_TOKEN_PROGRAM_ID, TOKEN_PROGRAM_ID } from "@solana/spl-token";
+import { Account, Connection, PublicKey } from "@solana/web3.js";
 import { CurveType, TokenSwap } from "../src";
 import { url } from "../src/util/url";
-import { createPoolWithKeypair, TokenProvideInfo, FeeParams, getPools } from "./swap-api";
+import { createPoolWithKeypair, TokenProvideInfo } from "./swap-api";
 
-const TRADING_FEE_NUMERATOR: number = parseInt(process.env.TRADING_FEE_NUMERATOR);
-const TRADING_FEE_DENOMINATOR: number = parseInt(process.env.TRADING_FEE_DENOMINATOR);
-const OWNER_TRADING_FEE_NUMERATOR: number = parseInt(process.env.OWNER_TRADING_FEE_NUMERATOR);
-const OWNER_TRADING_FEE_DENOMINATOR: number = parseInt(process.env.OWNER_TRADING_FEE_DENOMINATOR);
-const OWNER_WITHDRAW_FEE_NUMERATOR: number = parseInt(process.env.OWNER_WITHDRAW_FEE_NUMERATOR);
-const OWNER_WITHDRAW_FEE_DENOMINATOR: number = parseInt(process.env.OWNER_WITHDRAW_FEE_DENOMINATOR);
-const HOST_FEE_NUMERATOR: number = parseInt(process.env.HOST_FEE_NUMERATOR);
-const HOST_FEE_DENOMINATOR: number = parseInt(process.env.HOST_FEE_DENOMINATOR);
+const TRADING_FEE_NUMERATOR: number = parseInt(process.env.TRADING_FEE_NUMERATOR || '20');
+const TRADING_FEE_DENOMINATOR: number = parseInt(process.env.TRADING_FEE_DENOMINATOR || '10000');
+const OWNER_TRADING_FEE_NUMERATOR: number = parseInt(process.env.OWNER_TRADING_FEE_NUMERATOR || '5');
+const OWNER_TRADING_FEE_DENOMINATOR: number = parseInt(process.env.OWNER_TRADING_FEE_DENOMINATOR || '10000');
+const OWNER_WITHDRAW_FEE_NUMERATOR: number = parseInt(process.env.OWNER_WITHDRAW_FEE_NUMERATOR || '0');
+const OWNER_WITHDRAW_FEE_DENOMINATOR: number = parseInt(process.env.OWNER_WITHDRAW_FEE_DENOMINATOR || '10000');
+const HOST_FEE_NUMERATOR: number = parseInt(process.env.HOST_FEE_NUMERATOR || '0');
+const HOST_FEE_DENOMINATOR: number = parseInt(process.env.HOST_FEE_DENOMINATOR || '100');
 
 const walletFile: string = process.env.WALLET_FILE as string;
 const feeOwnerKey = process.env.FEE_OWNER_KEY || '';
