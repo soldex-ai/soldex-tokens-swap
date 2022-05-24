@@ -4,27 +4,17 @@ import { CurveType, TokenSwap } from "../src";
 import { url } from "../src/util/url";
 import { createPoolWithKeypair, TokenProvideInfo, FeeParams, getPools } from "./swap-api";
 
-// Pool fees
-// const TRADING_FEE_NUMERATOR = 25;
-// const TRADING_FEE_DENOMINATOR = 10000;
-// const OWNER_TRADING_FEE_NUMERATOR = 5;
-// const OWNER_TRADING_FEE_DENOMINATOR = 10000;
-// const OWNER_WITHDRAW_FEE_NUMERATOR = 1;
-// const OWNER_WITHDRAW_FEE_DENOMINATOR = 6;
-// const HOST_FEE_NUMERATOR = 20;
-// const HOST_FEE_DENOMINATOR = 100;
-//
-const TRADING_FEE_NUMERATOR = 0;
-const TRADING_FEE_DENOMINATOR = 10000;
-const OWNER_TRADING_FEE_NUMERATOR = 5;
-const OWNER_TRADING_FEE_DENOMINATOR = 10000;
-const OWNER_WITHDRAW_FEE_NUMERATOR = 0;
-const OWNER_WITHDRAW_FEE_DENOMINATOR = 0;
-const HOST_FEE_NUMERATOR = 20;
-const HOST_FEE_DENOMINATOR = 100;
+const TRADING_FEE_NUMERATOR: number = parseInt(process.env.TRADING_FEE_NUMERATOR);
+const TRADING_FEE_DENOMINATOR: number = parseInt(process.env.TRADING_FEE_DENOMINATOR);
+const OWNER_TRADING_FEE_NUMERATOR: number = parseInt(process.env.OWNER_TRADING_FEE_NUMERATOR);
+const OWNER_TRADING_FEE_DENOMINATOR: number = parseInt(process.env.OWNER_TRADING_FEE_DENOMINATOR);
+const OWNER_WITHDRAW_FEE_NUMERATOR: number = parseInt(process.env.OWNER_WITHDRAW_FEE_NUMERATOR);
+const OWNER_WITHDRAW_FEE_DENOMINATOR: number = parseInt(process.env.OWNER_WITHDRAW_FEE_DENOMINATOR);
+const HOST_FEE_NUMERATOR: number = parseInt(process.env.HOST_FEE_NUMERATOR);
+const HOST_FEE_DENOMINATOR: number = parseInt(process.env.HOST_FEE_DENOMINATOR);
 
 const walletFile: string = process.env.WALLET_FILE as string;
-const feeOwnerKey = new PublicKey(process.env.FEE_OWNER_KEY || '');
+const feeOwnerKey = process.env.FEE_OWNER_KEY || '';
 
 const baseMintKey = new PublicKey(process.env.BASE_MINT_TOKEN || '');
 const baseAmount: string = process.env.BASE_AMOUNT as string;

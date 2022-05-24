@@ -104,12 +104,25 @@
   "resolved" "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz"
   "version" "1.2.0"
 
-"@octokit/auth-token@^2.4.0":
+"@octokit/auth-token@^2.4.0", "@octokit/auth-token@^2.4.4":
   "integrity" "sha512-BpGYsPgJt05M7/L/5FoE1PiAbdxXFZkX/3kDYcsvd1v6UhlnE5e96dTDr0ezX/EFwciQxf3cNV0loipsURU+WA=="
   "resolved" "https://registry.npmjs.org/@octokit/auth-token/-/auth-token-2.4.5.tgz"
   "version" "2.4.5"
   dependencies:
     "@octokit/types" "^6.0.3"
+
+"@octokit/core@>=3":
+  "integrity" "sha512-7RKRKuA4xTjMhY+eG3jthb3hlZCsOwg3rztWh75Xc+ShDWOfDDATWbeZpAHBNRpm4Tv9WgBMOy1zEJYXG6NJ7Q=="
+  "resolved" "https://registry.npmjs.org/@octokit/core/-/core-3.6.0.tgz"
+  "version" "3.6.0"
+  dependencies:
+    "@octokit/auth-token" "^2.4.4"
+    "@octokit/graphql" "^4.5.8"
+    "@octokit/request" "^5.6.3"
+    "@octokit/request-error" "^2.0.5"
+    "@octokit/types" "^6.0.3"
+    "before-after-hook" "^2.2.0"
+    "universal-user-agent" "^6.0.0"
 
 "@octokit/endpoint@^6.0.1":
   "integrity" "sha512-fUIPpx+pZyoLW4GCs3yMnlj2LfoXTWDUVPTC4V3MUEKZm48W+XYpeWSZCv+vYF1ZABUm2CqnDVf1sFtIYrj7KQ=="
@@ -120,10 +133,19 @@
     "is-plain-object" "^5.0.0"
     "universal-user-agent" "^6.0.0"
 
-"@octokit/openapi-types@^5.0.0":
-  "integrity" "sha512-QXpwbGjidE+XhgCEeXpffQk/XGiexgne8czTebwU359Eoko8FJzAED4aizrQlL9t4n6tMx/1Ka1vwZbP6rayFA=="
-  "resolved" "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-5.0.0.tgz"
-  "version" "5.0.0"
+"@octokit/graphql@^4.5.8":
+  "integrity" "sha512-0gv+qLSBLKF0z8TKaSKTsS39scVKF9dbMxJpj3U0vC7wjNWFuIpL/z76Qe2fiuCbDRcJSavkXsVtMS6/dtQQsg=="
+  "resolved" "https://registry.npmjs.org/@octokit/graphql/-/graphql-4.8.0.tgz"
+  "version" "4.8.0"
+  dependencies:
+    "@octokit/request" "^5.6.0"
+    "@octokit/types" "^6.0.3"
+    "universal-user-agent" "^6.0.0"
+
+"@octokit/openapi-types@^11.2.0":
+  "integrity" "sha512-PBsVO+15KSlGmiI8QAzaqvsNlZlrDlyAJYcrXBCvVUxCp7VnXjkwPoFHgjEJXx3WF9BAwkA6nfCUA7i9sODzKA=="
+  "resolved" "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-11.2.0.tgz"
+  "version" "11.2.0"
 
 "@octokit/plugin-paginate-rest@^1.1.1":
   "integrity" "sha512-jbsSoi5Q1pj63sC16XIUboklNw+8tL9VOnJsWycWYR78TKss5PVpIPb1TUUcMQ+bBh7cY579cVAWmf5qG+dw+Q=="
@@ -154,27 +176,34 @@
     "deprecation" "^2.0.0"
     "once" "^1.4.0"
 
-"@octokit/request-error@^2.0.0":
-  "integrity" "sha512-T/2wcCFyM7SkXzNoyVNWjyVlUwBvW3igM3Btr/eKYiPmucXTtkxt2RBsf6gn3LTzaLSLTQtNmvg+dGsOxQrjZg=="
-  "resolved" "https://registry.npmjs.org/@octokit/request-error/-/request-error-2.0.5.tgz"
-  "version" "2.0.5"
+"@octokit/request-error@^2.0.5":
+  "integrity" "sha512-1VIvgXxs9WHSjicsRwq8PlR2LR2x6DwsJAaFgzdi0JfJoGSO8mYI/cHJQ+9FbN21aa+DrgNLnwObmyeSC8Rmpg=="
+  "resolved" "https://registry.npmjs.org/@octokit/request-error/-/request-error-2.1.0.tgz"
+  "version" "2.1.0"
   dependencies:
     "@octokit/types" "^6.0.3"
     "deprecation" "^2.0.0"
     "once" "^1.4.0"
 
-"@octokit/request@^5.2.0":
-  "integrity" "sha512-VkmtacOIQp9daSnBmDI92xNIeLuSRDOIuplp/CJomkvzt7M18NXgG044Cx/LFKLgjKt9T2tZR6AtJayba9GTSA=="
-  "resolved" "https://registry.npmjs.org/@octokit/request/-/request-5.4.14.tgz"
-  "version" "5.4.14"
+"@octokit/request-error@^2.1.0":
+  "integrity" "sha512-1VIvgXxs9WHSjicsRwq8PlR2LR2x6DwsJAaFgzdi0JfJoGSO8mYI/cHJQ+9FbN21aa+DrgNLnwObmyeSC8Rmpg=="
+  "resolved" "https://registry.npmjs.org/@octokit/request-error/-/request-error-2.1.0.tgz"
+  "version" "2.1.0"
+  dependencies:
+    "@octokit/types" "^6.0.3"
+    "deprecation" "^2.0.0"
+    "once" "^1.4.0"
+
+"@octokit/request@^5.2.0", "@octokit/request@^5.6.0", "@octokit/request@^5.6.3":
+  "integrity" "sha512-bFJl0I1KVc9jYTe9tdGGpAMPy32dLBXXo1dS/YwSCTL/2nd9XeHsY616RE3HPXDVk+a+dBuzyz5YdlXwcDTr2A=="
+  "resolved" "https://registry.npmjs.org/@octokit/request/-/request-5.6.3.tgz"
+  "version" "5.6.3"
   dependencies:
     "@octokit/endpoint" "^6.0.1"
-    "@octokit/request-error" "^2.0.0"
-    "@octokit/types" "^6.7.1"
-    "deprecation" "^2.0.0"
+    "@octokit/request-error" "^2.1.0"
+    "@octokit/types" "^6.16.1"
     "is-plain-object" "^5.0.0"
-    "node-fetch" "^2.6.1"
-    "once" "^1.4.0"
+    "node-fetch" "^2.6.7"
     "universal-user-agent" "^6.0.0"
 
 "@octokit/rest@^16.43.1":
@@ -213,12 +242,12 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@octokit/types@^6.0.3", "@octokit/types@^6.7.1":
-  "integrity" "sha512-j4ms2ukvWciu8hSuIWtWK/LyOWMZ0ZsRcvPIVLBYyAkTKBKrMJyiyv2wawJnyphKyEOhRgIyu5Nmf4yPxp0tcg=="
-  "resolved" "https://registry.npmjs.org/@octokit/types/-/types-6.9.0.tgz"
-  "version" "6.9.0"
+"@octokit/types@^6.0.3", "@octokit/types@^6.16.1":
+  "integrity" "sha512-s1zLBjWhdEI2zwaoSgyOFoKSl109CUcVBCc7biPJ3aAf6LGLU6szDvi31JPU7bxfla2lqfhjbbg/5DdFNxOwHw=="
+  "resolved" "https://registry.npmjs.org/@octokit/types/-/types-6.34.0.tgz"
+  "version" "6.34.0"
   dependencies:
-    "@octokit/openapi-types" "^5.0.0"
+    "@octokit/openapi-types" "^11.2.0"
 
 "@sideway/address@^4.1.0":
   "integrity" "sha512-idTz8ibqWFrPU8kMirL0CoPH/A29XOzzAzpyN3zQ4kAWnzmNfFmRaoMNN6VI8ske5M73HZyhIaW4OuSFIdM4oA=="
@@ -559,10 +588,10 @@
   "resolved" "https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz"
   "version" "1.5.1"
 
-"before-after-hook@^2.0.0":
-  "integrity" "sha512-5ekuQOvO04MDj7kYZJaMab2S8SPjGJbotVNyv7QYFCOAwrGZs/YnoDNlh1U+m5hl7H2D/+n0taaAV/tfyd3KMA=="
-  "resolved" "https://registry.npmjs.org/before-after-hook/-/before-after-hook-2.1.1.tgz"
-  "version" "2.1.1"
+"before-after-hook@^2.0.0", "before-after-hook@^2.2.0":
+  "integrity" "sha512-3pZEU3NT5BFUo/AD5ERPWOgQOCZITni6iavr5AUw5AUwQjMlI0kzu5btnyD39AF0gUEsDPwJT+oY1ORBJijPjQ=="
+  "resolved" "https://registry.npmjs.org/before-after-hook/-/before-after-hook-2.2.2.tgz"
+  "version" "2.2.2"
 
 "big-integer@^1.6.17":
   "integrity" "sha512-j51egjPa7/i+RdiRuJbPdJ2FIUYYPhvYLjzoYbcMMm62ooO6F94fETG4MTs46zPAF9Brs04OajboA/qTGuz78w=="
@@ -2104,7 +2133,14 @@
   "resolved" "https://registry.npmjs.org/node-addon-api/-/node-addon-api-2.0.2.tgz"
   "version" "2.0.2"
 
-"node-fetch@^2.6.1", "node-fetch@2.6.1":
+"node-fetch@^2.6.7":
+  "integrity" "sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ=="
+  "resolved" "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.7.tgz"
+  "version" "2.6.7"
+  dependencies:
+    "whatwg-url" "^5.0.0"
+
+"node-fetch@2.6.1":
   "integrity" "sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw=="
   "resolved" "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.1.tgz"
   "version" "2.6.1"
@@ -2866,6 +2902,11 @@
   "resolved" "https://registry.npmjs.org/to-readable-stream/-/to-readable-stream-2.1.0.tgz"
   "version" "2.1.0"
 
+"tr46@~0.0.3":
+  "integrity" "sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o="
+  "resolved" "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz"
+  "version" "0.0.3"
+
 "traverse@>=0.3.0 <0.4":
   "integrity" "sha1-cXuPIgzAu3tE5AUUwisui7xw2Lk="
   "resolved" "https://registry.npmjs.org/traverse/-/traverse-0.3.9.tgz"
@@ -3039,6 +3080,19 @@
   dependencies:
     "exec-sh" "^0.2.0"
     "minimist" "^1.2.0"
+
+"webidl-conversions@^3.0.0":
+  "integrity" "sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE="
+  "resolved" "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz"
+  "version" "3.0.1"
+
+"whatwg-url@^5.0.0":
+  "integrity" "sha1-lmRU6HZUYuN2RNNib2dCzotwll0="
+  "resolved" "https://registry.npmjs.org/whatwg-url/-/whatwg-url-5.0.0.tgz"
+  "version" "5.0.0"
+  dependencies:
+    "tr46" "~0.0.3"
+    "webidl-conversions" "^3.0.0"
 
 "which-boxed-primitive@^1.0.2":
   "integrity" "sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg=="

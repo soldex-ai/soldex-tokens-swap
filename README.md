@@ -1,64 +1,114 @@
+# Pre Requisites
+Install required library:
+
+```sh
+sudo apt-get install libudev-dev cargo
+```
+
+Install Rust:
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Install `solana cli tool` **[(See solana-cli usage)](https://docs.solana.com/cli/usage)**
+```sh
+sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
+```
+
+Install `spl-token-cli`
+```sh
+cargo install spl-token-cli
+```
+
+Next, create new keypair
+```sh
+solana-keygen new --outfile ~/.config/solana/devnet.json
+```
+
+You will get:
+- path to ID: `~/.config/solana/devnet.json`
+- pubkey: `A8wk...Xu` [you can see it by typing `solana-keygen pubkey`]
+- passphrase to recover your new keypair: `throw board ... lawn response`. **Store it!**
+
+Next, say solana to use generated key and set network to devnet
+```sh
+solana config set --keypair ~/.config/solana/devnet.json --url https://api.devnet.solana.com
+```
+
+Next, add balance (run in additional window, it will take long time):
+```sh
+for i in {1..25}; do solana airdrop 1; sleep 1; done
+```
+
+```sh
+cd js; npm install; cd -
+```
+
+
 # Token Swap Program
-
-A Uniswap-like exchange for the Token program on the Solana blockchain, deployed
-to `TOKEN_SWAP_PROGRAM_ID :35J9s72PQRsHKf7bnsBfQnHYxkchLAaQmN9Bc1x7vS7w` on all networks.
-
 Full documentation is available at https://spl.solana.com/token-swap
 
 Smart Contract is in the `./program` directory.
-
 JavaScript bindings are available in the `./js` directory.
 
-## Building
-
-To build a development version of the Token Swap program, you can use the normal
-build command for Solana programs:
+## Build
 
 ```sh
-cd program
-cargo build-bpf
+cd js; npm run build:program; cd -
 ```
-For production versions, the Token Swap Program contains a `production` feature
-to fix constraints on fees and fee account owner. A developer can
-deploy the program, allow others to create pools, and earn a "protocol fee" on
-all activity.
-## Build the on-chain program
-
-$ cd ../js
-$ npm run build:program
-
 
 ## Deploy the smart contract
 
 Need to have at least 2 SOL.
 
-$ solana program depoy <PATH of FILE>/spl_token_swap.so
+```sh
+cd js; npm run deploy:program; cd -
+```
 
-Since Solana programs cannot contain any modifiable state, we must hard-code
-all constraints into the program.  `SwapConstraints` in `program/src/constraints.rs`
-contains all hard-coded fields for fees.  Additionally the
-`SWAP_PROGRAM_OWNER_FEE_ADDRESS` environment variable specifies the public key
-that must own all fee accounts.
+## Create pools
+To get wallet address run
+```sh
+solana address
+```
 
-You can build the production version of Token Swap running on devnet, testnet, and
-mainnet-beta using the following command:
+Provide Roman address and ask to send you coins
+To confirm you have enough tokens run
+```sh
+spl-token accounts
+```
+To get SOL (Wrapped) run:
+```sh
+spl-token wrap 25
+```
+
+Create `js/.env` by running the following command
 
 ```sh
-SWAP_PROGRAM_OWNER_FEE_ADDRESS=HfoTxFR1Tm6kGmWgYWD6J7YHVy1UwqSULUGVLXkJqaKN cargo build-bpf --features=production
+cd js
+npm run cluster:devnet
+cd -
 ```
+
+Token address mapping:
+- **SOLX**: 3Wm65cRmFAbiC52YXjw1dZkJLsYA75kvNFBdaZVjVQwD
+- **USDC**: CB74zeEZk138FikM4W7b71eshsFttLq3LRFWqpAwXFXi
+- **USDT**: CWgY911b1UszYmKiGYAoEbWrTNNgY1KuybJufzhsTxKx
+- 
+- **SOL(WRAP)**: So11111111111111111111111111111111111111112
+
+Fullfill js/.env and run:
+```sh
+cd js; npm run create-pool; cd -
+```
+
+!!! IMPORTANT: use should change .env before every pool creation
 
 ## The client connects to a local Solana cluster by default.
 
 To enable on-chain program logs, set the RUST_LOG environment variable:
 
 $ export RUST_LOG=solana_runtime::native_loader=trace,solana_runtime::system_instruction_processor=trace,solana_runtime::bank=debug,solana_bpf_loader=debug,solana_rbpf=debug
-
-## set cluster 
-
-npm run cluster:devnet / npm run cluster:localnet / npm run cluster:testnet(command to set cluster network)
-
-## Run the test client
-$ npm run start
 
 ### Unit tests
 
@@ -115,32 +165,4 @@ If you are testing a production build, use:
 
 ```sh
 SWAP_PROGRAM_OWNER_FEE_ADDRESS="7uT58uvDWBSpJMRV5QwP5HiBGhFSjRkZWDza4EWiEQUM" npm run start-with-test-validator
-```
-### Pool Create
-
-Please specify .env file before creating a pool
-
-For Devnet specify cluster-devnet.env file and run
-
-```sh
-npm run cluster:devnet
-```
-
-For Testnet specify cluster-testnet.env file and run
-
-```sh
-npm run cluster:testnet
-```
-
-For Mainnet specify cluster-mainnet-beta.env file and run
-
-```sh
-npm run cluster:mainnet-beta
-```
-
-Create a pool
-
-```sh
-npm install
-npm run create-pool
 ```
